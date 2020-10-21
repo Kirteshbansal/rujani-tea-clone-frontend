@@ -10,7 +10,7 @@ class Header extends Component {
   }
   render() {
     return (
-      <Flex bg="white" minH={80} px={50} py={18}>
+      <Flex bg="white" minH={80} px={50} py={18} justifyContent="space-between">
         <List
           styleType="none"
           display="flex"
@@ -18,7 +18,8 @@ class Header extends Component {
           justifyContent="flex-start"
           fontSize="0.8em"
           w="80%"
-          fontWeight="500"
+          fontWeight="600"
+          letterSpacing="1.5px"
           w="45%"
           m={0}
           p={0}
@@ -42,7 +43,7 @@ class Header extends Component {
             <Link to="/contact-us">CONTACT US</Link>
           </ListItem>
         </List>
-        <Link w="10%" to="/">
+        <Link w="10%" to="/" justifyContent="center" alignItems="center">
           <Image
             size=""
             objectFit="cover"
@@ -56,15 +57,15 @@ class Header extends Component {
           color="gray"
           alignItems="center"
         >
-          <Flex>
+          <Flex alignItems="center">
             <Link to="/account">
-              <Icon as={BiUser} size={6} mr={3} />
+              <Icon as={BiUser} size="27px" mr={5} />
             </Link>
             <Link to="/search">
-              <Icon as={BiSearch} size={6} mr={3} />
+              <Icon as={BiSearch} size="27px" mr={5} />
             </Link>
             <Link to="/cart">
-              <Icon as={BiShoppingBag} size={6} />
+              <Icon as={BiShoppingBag} size="27px" mr={2} />
             </Link>
           </Flex>
         </Flex>
