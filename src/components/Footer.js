@@ -1,5 +1,13 @@
 import React, { Component } from "react";
-import { Flex, Stack, Text, Heading, Icon } from "@chakra-ui/core";
+import {
+  Flex,
+  Stack,
+  Text,
+  Heading,
+  Icon,
+  List,
+  ListItem,
+} from "@chakra-ui/core";
 import { Link } from "react-router-dom";
 import { RiFacebookFill, RiInstagramLine } from "react-icons/ri";
 
@@ -12,8 +20,8 @@ class Footer extends Component {
     return (
       <>
         <Flex pt={75} pb={42}>
-          <Flex px={80}>
-            <Stack w="29%" mb={50}>
+          <Flex px={80} justifyContent="space-between">
+            <Stack w="29%" mb={50} p={2}>
               <Heading
                 as="h6"
                 size="xs"
@@ -69,6 +77,60 @@ class Footer extends Component {
                   ></Icon>
                 </Link>
               </Flex>
+            </Stack>
+            <Stack px={10} mb={50} pt={2}>
+              <Heading
+                as="h6"
+                size="xs"
+                color="var(--nero-black)"
+                fontWeight="500"
+                letterSpacing="1.8px"
+                fontSize={14}
+              >
+                CATEGORIES
+              </Heading>
+              <List styleType="none" p={0} m={0} mt="20px">
+                <ListItem
+                  color="var(--dim-gray)"
+                  mb={3}
+                  fontSize={14}
+                  _hover={{ color: "var(--nero-black)" }}
+                >
+                  <Link to="/collection/all">All products</Link>
+                </ListItem>
+                <ListItem
+                  color="var(--dim-gray)"
+                  my={3}
+                  fontSize={14}
+                  _hover={{ color: "var(--nero-black)" }}
+                >
+                  <Link to="/collection/award-winners">Award winners</Link>
+                </ListItem>
+                <ListItem
+                  color="var(--dim-gray)"
+                  my={3}
+                  fontSize={14}
+                  _hover={{ color: "var(--nero-black)" }}
+                >
+                  <Link to="/collection/signature-teas">Signature teas</Link>
+                </ListItem>
+                <ListItem
+                  color="var(--dim-gray)"
+                  my={3}
+                  fontSize={14}
+                  _hover={{ color: "var(--nero-black)" }}
+                >
+                  <Link to="/collection/black-tea">Black teas</Link>
+                </ListItem>
+                <ListItem
+                  color="var(--dim-gray)"
+                  mt={3}
+                  fontSize={14}
+                  _hover={{ color: "var(--nero-black)" }}
+                >
+                  <Link to="/collection/white-tea">White teas</Link>
+                </ListItem>
+              </List>
             </Stack>
           </Flex>
         </Flex>
