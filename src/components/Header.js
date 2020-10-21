@@ -1,7 +1,7 @@
 import React, { Component } from "react";
-import { Flex, Image, List, ListItem, Icon } from "@chakra-ui/core";
+import { Flex, Image, List, ListItem, Icon, IconButton } from "@chakra-ui/core";
 import { Link } from "react-router-dom";
-import { BiUser, BiSearch, BiShoppingBag } from "react-icons/bi";
+import { BiUser, BiShoppingBag } from "react-icons/bi";
 
 class Header extends Component {
   constructor(props) {
@@ -59,11 +59,20 @@ class Header extends Component {
         >
           <Flex alignItems="center">
             <Link to="/account">
-              <Icon as={BiUser} size="27px" mr={5} />
+              <Icon as={BiUser} size="27px" mr={4} />
             </Link>
-            <Link to="/search">
-              <Icon as={BiSearch} size="27px" mr={5} />
-            </Link>
+            <IconButton
+              variantColor="transparent"
+              aria-label="Search product"
+              color="black"
+              icon="search"
+              size="lg"
+              h="auto"
+              w="auto"
+              mr={4}
+              p={0}
+              _focus={{ outline: "none" }}
+            />
             <Link to="/cart">
               <Icon as={BiShoppingBag} size="27px" mr={2} />
             </Link>
