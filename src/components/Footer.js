@@ -7,6 +7,9 @@ import {
   Icon,
   List,
   ListItem,
+  FormControl,
+  Input,
+  Button,
 } from "@chakra-ui/core";
 import { Link } from "react-router-dom";
 import { RiFacebookFill, RiInstagramLine } from "react-icons/ri";
@@ -21,7 +24,7 @@ class Footer extends Component {
       <>
         <Flex pt={75} pb={42}>
           <Flex px={80} justifyContent="space-between">
-            <Stack w="29%" mb={50} p={2}>
+            <Stack w="22%" mb={50} p={2}>
               <Heading
                 as="h6"
                 size="xs"
@@ -177,6 +180,65 @@ class Footer extends Component {
                   Search
                 </ListItem>
               </List>
+            </Stack>
+            <Stack w="18%" mb={50} p={2}>
+              <Heading
+                as="h6"
+                size="xs"
+                color="var(--nero-black)"
+                fontWeight="500"
+                letterSpacing="1.8px"
+                fontSize={14}
+              >
+                NEWSLETTER
+              </Heading>
+              <Text
+                fontSize={13}
+                color="var(--dim-gray)"
+                mt="20px"
+                lineHeight={2}
+                w="80%"
+              >
+                Subscribe to receive updates, access to exclusive deals, and
+                more.
+              </Text>
+              <Flex mt={14}>
+                <form>
+                  <FormControl isRequired>
+                    <Input
+                      variant="outline"
+                      placeholder="Enter your email"
+                      rounded={0}
+                      size="md"
+                      border="1px solid #777"
+                      _hover={{ outline: "none", border: "1px solid #000" }}
+                      _focus={{ outline: "none", border: "1px solid #000" }}
+                      w={290}
+                    />
+                    <Button
+                      variant="solid"
+                      bg="var(--nero-black)"
+                      rounded={0}
+                      mt={17}
+                      color="#fff"
+                      border="1px solid var(--nero-black)"
+                      fontSize={14}
+                      fontWeight="400"
+                      letterSpacing={2}
+                      verticalAlign="middle"
+                      px={8}
+                      _hover={{
+                        outline: "none",
+                        bg: "white",
+                        color: "var(--nero-black)",
+                        border: "1px solid var(--nero-black)",
+                      }}
+                    >
+                      SUBSCRIBE
+                    </Button>
+                  </FormControl>
+                </form>
+              </Flex>
             </Stack>
           </Flex>
         </Flex>
