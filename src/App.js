@@ -2,6 +2,7 @@ import React, { Component } from "react";
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 
 import "./App.css";
+import Header from "./components/Header";
 
 class App extends Component {
   constructor(props) {
@@ -9,7 +10,14 @@ class App extends Component {
     this.state = {};
   }
   render() {
-    return <></>;
+    return (
+      <>
+        <Router>
+          <Header />
+          <Switch></Switch>
+        </Router>
+      </>
+    );
   }
 }
 
