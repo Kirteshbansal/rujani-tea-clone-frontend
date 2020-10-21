@@ -132,6 +132,52 @@ class Footer extends Component {
                 </ListItem>
               </List>
             </Stack>
+            <Stack px={10} mb={50} pt={2}>
+              <Heading
+                as="h6"
+                size="xs"
+                color="var(--nero-black)"
+                fontWeight="500"
+                letterSpacing="1.8px"
+                fontSize={14}
+              >
+                INFORMATION
+              </Heading>
+              <List styleType="none" p={0} m={0} mt="20px">
+                <ListItem
+                  color="var(--dim-gray)"
+                  mb={3}
+                  fontSize={14}
+                  _hover={{ color: "var(--nero-black)" }}
+                >
+                  <Link to="/contact-us">Contact Us</Link>
+                </ListItem>
+                <ListItem
+                  color="var(--dim-gray)"
+                  my={3}
+                  fontSize={14}
+                  _hover={{ color: "var(--nero-black)" }}
+                >
+                  <Link to="/about">About us</Link>
+                </ListItem>
+                <ListItem
+                  color="var(--dim-gray)"
+                  my={3}
+                  fontSize={14}
+                  _hover={{ color: "var(--nero-black)" }}
+                >
+                  <Link to="/faq">FAQ</Link>
+                </ListItem>
+                <ListItem
+                  color="var(--dim-gray)"
+                  my={3}
+                  fontSize={14}
+                  _hover={{ color: "var(--nero-black)" }}
+                >
+                  Search
+                </ListItem>
+              </List>
+            </Stack>
           </Flex>
         </Flex>
       </>
