@@ -10,9 +10,12 @@ import {
   FormControl,
   Input,
   Button,
+  Box,
 } from "@chakra-ui/core";
 import { Link } from "react-router-dom";
 import { RiFacebookFill, RiInstagramLine } from "react-icons/ri";
+
+import PaymentModes from "./PaymentModes";
 
 class Footer extends Component {
   constructor(props) {
@@ -22,7 +25,7 @@ class Footer extends Component {
   render() {
     return (
       <>
-        <Flex pt={75} pb={42}>
+        <Stack pt={75} pb={42}>
           <Flex px={80} justifyContent="space-between">
             <Stack w="22%" mb={50} p={2}>
               <Heading
@@ -233,6 +236,7 @@ class Footer extends Component {
                         color: "var(--nero-black)",
                         border: "1px solid var(--nero-black)",
                       }}
+                      _focus={{ outline: "none" }}
                     >
                       SUBSCRIBE
                     </Button>
@@ -241,7 +245,30 @@ class Footer extends Component {
               </Flex>
             </Stack>
           </Flex>
-        </Flex>
+          <Flex px={80} justifyContent="space-between" mt={50}>
+            <Box>
+              <Text
+                letterSpacing="1.5px"
+                textTransform="uppercase"
+                fontSize={12}
+                color="var(--nero-black)"
+              >
+                <Link
+                  to="/"
+                  _hover={{ textDecoration: "none", color: "var(--dim-gray)" }}
+                >
+                  © Rujani Tea India
+                </Link>
+              </Text>
+              <Text color="var(--dim-gray)" fontSize="sm" marginTop={3}>
+                <Link to="#" _hover={{ textDecoration: "none" }}>
+                  Powered by Shopify
+                </Link>
+              </Text>
+            </Box>
+            <PaymentModes />
+          </Flex>
+        </Stack>
       </>
     );
   }
