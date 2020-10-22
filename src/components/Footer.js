@@ -55,7 +55,6 @@ class Footer extends Component {
               <Text
                 fontSize={13}
                 color="var(--dim-gray)"
-                lineHeight="1.6"
                 mt="20px"
                 lineHeight={2}
               >
