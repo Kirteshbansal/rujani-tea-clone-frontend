@@ -20,7 +20,6 @@
   margin-top: 23px;
   padding: 11px 10px;
   background-color: white;
-  width: 11em;
   text-align: center;
   font-size: 13.5px;
   letter-spacing: 1.5px;
@@ -35,4 +34,11 @@
   border: 1.5px solid white;
   color: white;
   font-weight: 500;
+}
+
+.button-mw {
+  width: 11em;
+}
+.button-lw {
+  width: 15em;
 }
