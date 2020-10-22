@@ -65,7 +65,7 @@ class Header extends Component {
               variant="Ghost"
               aria-label="Search product"
               color="black"
-              icon="search"
+              icon="search-2"
               size="lg"
               h="auto"
               w="auto"
