@@ -19,6 +19,7 @@ class Header extends Component {
           fontSize="0.8em"
           fontWeight="600"
           letterSpacing="1.5px"
+          color="var(--nero-black)"
           w="45%"
           m={0}
           p={0}
@@ -53,7 +54,7 @@ class Header extends Component {
         <Flex
           w="45%"
           justifyContent="flex-end"
-          color="gray"
+          color="var(--nero-black)"
           alignItems="center"
         >
           <Flex alignItems="center">
