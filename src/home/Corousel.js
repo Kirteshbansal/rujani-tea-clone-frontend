@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import Slider from "react-slick";
-import { Box, Heading, Stack, Text, Button } from "@chakra-ui/core";
+import { Box, Heading, Stack, Text } from "@chakra-ui/core";
 import { Link } from "react-router-dom";
 
 const images = [
@@ -80,7 +80,7 @@ class Corousel extends Component {
                   >
                     Buy Handcrafted Award Winning Artisanal Teas
                   </Heading>
-                  <Link to="/collection/all" className="hero-button">
+                  <Link to="/collection/all" className="hero-button button-mw">
                     SHOP NOW
                   </Link>
                 </Stack>
