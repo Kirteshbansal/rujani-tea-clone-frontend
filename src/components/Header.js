@@ -17,7 +17,6 @@ class Header extends Component {
           alignItems="center"
           justifyContent="flex-start"
           fontSize="0.8em"
-          w="80%"
           fontWeight="600"
           letterSpacing="1.5px"
           w="45%"
