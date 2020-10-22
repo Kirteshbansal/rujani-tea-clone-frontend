@@ -42,7 +42,7 @@ class Header extends Component {
             <Link to="/contact-us">CONTACT US</Link>
           </ListItem>
         </List>
-        <Link w="10%" to="/" justifyContent="center" alignItems="center">
+        <Link w="10%" to="/">
           <Image
             size=""
             objectFit="cover"
@@ -61,7 +61,7 @@ class Header extends Component {
               <Icon as={BiUser} size="27px" mr={4} />
             </Link>
             <IconButton
-              variantColor="transparent"
+              variant="Ghost"
               aria-label="Search product"
               color="black"
               icon="search"
