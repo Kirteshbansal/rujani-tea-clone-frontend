@@ -4,6 +4,7 @@ import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 import "./App.css";
 import Header from "./components/Header";
 import Footer from "./components/Footer";
+import Home from "./home/Home";
 
 class App extends Component {
   constructor(props) {
@@ -15,7 +16,9 @@ class App extends Component {
       <>
         <Router>
           <Header />
-          <Switch></Switch>
+          <Switch>
+            <Route path="/" exact component={Home} />
+          </Switch>
           <Footer />
         </Router>
       </>
