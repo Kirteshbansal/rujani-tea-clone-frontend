@@ -14,7 +14,7 @@ const PaymentModes = () => {
           aria-labelledby="pi-airtel_money"
         >
           <title id="pi-airtel_money">Airtel Money</title>
-          <g fill-rule="evenodd" fill="none">
+          <g fillRule="evenodd" fill="none">
             <path
               fill="#EDEDED"
               d="M34.5 24h-31C1.6 24 0 22.4 0 20.5v-17C0 1.6 1.6 0 3.5 0h31C36.4 0 38 1.6 38 3.5v17c0 1.9-1.6 3.5-3.5 3.5z"
@@ -143,7 +143,7 @@ const PaymentModes = () => {
           aria-labelledby="pi-freecharge"
         >
           <title id="pi-freecharge">Freecharge</title>
-          <g fill-rule="evenodd" fill="none">
+          <g fillRule="evenodd" fill="none">
             <path
               fill="#EDEDED"
               d="M34.5 24h-31C1.6 24 0 22.4 0 20.5v-17C0 1.6 1.6 0 3.5 0h31C36.4 0 38 1.6 38 3.5v17c0 1.9-1.6 3.5-3.5 3.5z"
@@ -180,7 +180,7 @@ const PaymentModes = () => {
             ry="3"
             fill="#fff"
             stroke="#000"
-            stroke-opacity=".07"
+            strokeOpacity=".07"
           ></rect>
           <path
             d="M31.15 8.52a3.33 3.33 0 0 0-1 .1c-.25.05-.49.17-.75.23a5.29 5.29 0 0 1-.65.07c.07-1 .12-2 .2-3a1 1 0 0 0-.87-1.15 7.37 7.37 0 0 0-1.07 0v-.41a.75.75 0 0 0-.94-.82l-.7.11-7 1.17v7.08a3.94 3.94 0 0 1-.2.91c-.08.31-.17.63-.26 1a.16.16 0 0 0 0 .14l3.75-7.33A1.07 1.07 0 0 1 22.91 6a1.06 1.06 0 0 1 .84 1.07v9.7a1.09 1.09 0 0 1-2.17 0v-5h-.08l-2.92 5.6q-.17.33-.36.63a1.09 1.09 0 0 1-1.21.45 1 1 0 0 1-.75-1V8.84h-.13l-5.42 10.29a1.12 1.12 0 1 1-2-1c.62-1.13 1.21-2.24 1.79-3.34l4.92-9.47-6.32 1a1.42 1.42 0 0 0-1.1.94v13.08A1 1 0 0 0 9 21h15.29a1.12 1.12 0 0 0 1.2-.92l.06-.23h1.1a.81.81 0 0 0 .75-.39 2.05 2.05 0 0 0 .27-.67c.08-.44.11-.9.16-1.35q.26-2.42.51-4.85a.19.19 0 0 1 .19-.2c.26 0 .5-.09.75-.14a4.5 4.5 0 0 0 1.86-.75A2 2 0 0 0 32 9.7a1.08 1.08 0 0 0-.85-1.18zm-3.37-2.6c-.1.67-.14 1.36-.21 2-.12 1.18-.23 2.36-.35 3.55L26.86 15q-.16 1.5-.33 3a.63.63 0 0 1-.87.53L27 4.78a6 6 0 0 1 .55.45.75.75 0 0 1 .23.68zm2.47 5a.86.86 0 0 1-.84-.92.85.85 0 0 1 .85-.85.86.86 0 0 1-.01 1.73zm.56-.92a.55.55 0 0 1-.54.54.54.54 0 1 1 .54-.54z"
@@ -202,7 +202,7 @@ const PaymentModes = () => {
           aria-labelledby="pi-ola_money"
         >
           <title id="pi-ola_money">Ola Money</title>
-          <g fill-rule="evenodd" fill="none">
+          <g fillRule="evenodd" fill="none">
             <path
               fill="#EDEDED"
               d="M34.5 24h-31C1.6 24 0 22.4 0 20.5v-17C0 1.6 1.6 0 3.5 0h31C36.4 0 38 1.6 38 3.5v17c0 1.9-1.6 3.5-3.5 3.5z"
@@ -243,7 +243,7 @@ const PaymentModes = () => {
             ry="3"
             fill="#fff"
             stroke="#000"
-            stroke-opacity=".07"
+            strokeOpacity=".07"
           ></rect>
           <path
             d="M18.3 4.92H12v6.37h2.45V7.4h3.85V4.92zm1.4 0V7.4h3.86v3.89H26V4.92h-6.3zm3.85 7.78v3.9H19.7v2.47H26v-6.36h-2.45zm-9.1 3.9v-3.89H12v6.36h6.3V16.6h-3.85z"
@@ -262,9 +262,9 @@ const PaymentModes = () => {
           aria-labelledby="pi-rupay"
         >
           <title id="pi-rupay">RuPay</title>
-          <g fill="none" fill-rule="evenodd">
+          <g fill="none" fillRule="evenodd">
             <rect
-              stroke-opacity=".07"
+              strokeOpacity=".07"
               stroke="#000"
               fill="#FFF"
               x=".5"
