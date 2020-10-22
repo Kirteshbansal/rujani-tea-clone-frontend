@@ -14,3 +14,25 @@
 .font-montserrat {
   font-family: "Montserrat", sans-serif;
 }
+
+.hero-button {
+  color: var(--nero-black);
+  margin-top: 23px;
+  padding: 11px 10px;
+  background-color: white;
+  width: 11em;
+  text-align: center;
+  font-size: 13.5px;
+  letter-spacing: 1.5px;
+  border: 1.5px solid transparent;
+  box-shadow: 0 0 1.5px #fff;
+  font-weight: 500;
+  transition: all 0.3s ease;
+}
+
+.hero-button:hover {
+  background-color: transparent;
+  border: 1.5px solid white;
+  color: white;
+  font-weight: 500;
+}
