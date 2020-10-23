@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import { Box, Button, Heading, Stack } from "@chakra-ui/core";
+import { Box, Heading, Stack } from "@chakra-ui/core";
 import { Link } from "react-router-dom";
 
 class CategoryCard extends Component {
