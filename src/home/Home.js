@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import { Box, Flex } from "@chakra-ui/core";
 
-import Corousel from "./Corousel";
+import Carousel from "./Carousel";
 import CategoryCard from "./CategoryCard";
 import { categoryCardData } from "./categoryCardData";
 
@@ -19,7 +19,7 @@ class Home extends Component {
           h="90vh"
           background="linear-gradient(to top, #efefef ,#ffffff)"
         >
-          <Corousel />
+          <Carousel />
         </Box>
         <Flex
           background="#efefef"
