@@ -54,7 +54,7 @@ class Products extends Component {
       const image = product.media[1].url.split(",")[5];
       return (
         <Box mx={7} my={5} key={product.product_id} w="21%">
-          <Link to={`product/${product.product_id}`}>
+          <Link to={`/product/${product.product_id}`}>
             <Stack textAlign="center">
               <Image
                 src={
