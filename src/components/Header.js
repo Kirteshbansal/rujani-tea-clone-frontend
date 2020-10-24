@@ -1,16 +1,47 @@
 import React, { Component } from "react";
-import { Flex, Image, List, ListItem, Icon, IconButton } from "@chakra-ui/core";
+import {
+  Flex,
+  Image,
+  List,
+  ListItem,
+  Icon,
+  IconButton,
+  Menu,
+  MenuButton,
+  MenuList,
+  MenuItem,
+  MenuGroup,
+  Button,
+  Text,
+  Stack,
+} from "@chakra-ui/core";
 import { Link } from "react-router-dom";
 import { BiUser, BiShoppingBag } from "react-icons/bi";
 
 class Header extends Component {
   constructor(props) {
     super(props);
-    this.state = {};
+    this.state = {
+      displayMenu: false,
+    };
   }
+
+  displayMegaMenu = () => {
+    this.setState({ displayMenu: !this.state.displayMenu });
+  };
+
   render() {
     return (
-      <Flex bg="white" minH={80} px={50} py={18} justifyContent="space-between">
+      <Flex
+        bg="white"
+        minH={80}
+        px={50}
+        py={18}
+        justifyContent="space-between"
+        position="sticky"
+        top="0"
+        zIndex="1"
+      >
         <List
           styleType="none"
           display="flex"
@@ -28,7 +59,245 @@ class Header extends Component {
             <Link to="/">HOME</Link>
           </ListItem>
           <ListItem mx="2%" my={3}>
-            <Link to="/collection/all">SHOP</Link>
+            <Menu
+              overFlow="hidden"
+              outline="none"
+              closeOnBlur={true}
+              autoSelect={false}
+              boxShadow="none"
+              isOpen={this.state.displayMenu}
+            >
+              <MenuButton
+                as={Button}
+                variant="unstyle"
+                fontSize="1.1em"
+                fontWeight="600"
+                letterSpacing="1.5px"
+                color="var(--nero-black)"
+                _focus={{ background: "transparent", outline: "none" }}
+                p={0}
+                boxShadow="none"
+                onClick={this.displayMegaMenu}
+              >
+                SHOP
+              </MenuButton>
+              <MenuList
+                width="99.7%"
+                placement="bottom-end"
+                display="flex"
+                justifyContent="space-between"
+                pt={20}
+                pb={12}
+                px="12%"
+                onMouseLeave={
+                  this.state.displayMenu ? this.displayMegaMenu : null
+                }
+              >
+                <MenuGroup
+                  mr={30}
+                  title="CATEGORIES"
+                  fontSize={12}
+                  fontWeight="400"
+                  color="var(--dim-gray)"
+                >
+                  <MenuItem
+                    fontWeight="400"
+                    letterSpacing={2}
+                    _groupHover={{
+                      background: "transparent",
+                    }}
+                    _hover={{
+                      color: "var(--dim-gray)",
+                    }}
+                    _focus={{ background: "transparent" }}
+                    onClick={this.displayMegaMenu}
+                  >
+                    <Link to="/collection/1">Award winners</Link>
+                  </MenuItem>
+                  <MenuItem
+                    fontWeight="400"
+                    letterSpacing={2}
+                    _groupHover={{
+                      background: "transparent",
+                    }}
+                    _hover={{ color: "var(--dim-gray)" }}
+                    _focus={{ background: "transparent" }}
+                    onClick={this.displayMegaMenu}
+                  >
+                    <Link to="/collection/2">Signature teas</Link>
+                  </MenuItem>
+                  <MenuItem
+                    fontWeight="400"
+                    letterSpacing={2}
+                    _groupHover={{
+                      background: "transparent",
+                    }}
+                    _hover={{ color: "var(--dim-gray)" }}
+                    _focus={{ background: "transparent" }}
+                    onClick={this.displayMegaMenu}
+                  >
+                    <Link to="/products">All products</Link>
+                  </MenuItem>
+                </MenuGroup>
+                <MenuGroup
+                  title="BESTSELLERS"
+                  fontSize={12}
+                  fontWeight="400"
+                  color="var(--dim-gray)"
+                >
+                  <MenuItem
+                    fontWeight="400"
+                    letterSpacing={2}
+                    _groupHover={{
+                      background: "transparent",
+                    }}
+                    _hover={{ color: "var(--dim-gray)" }}
+                    _focus={{ background: "transparent" }}
+                    onClick={this.displayMegaMenu}
+                  >
+                    <Link to="/product/16">Tippy Reverse</Link>
+                  </MenuItem>
+                  <MenuItem
+                    fontWeight="400"
+                    letterSpacing={2}
+                    _groupHover={{
+                      background: "transparent",
+                    }}
+                    _hover={{ color: "var(--dim-gray)" }}
+                    _focus={{ background: "transparent" }}
+                    onClick={this.displayMegaMenu}
+                  >
+                    <Link to="/product/6">Morning Special</Link>
+                  </MenuItem>
+                  <MenuItem
+                    fontWeight="400"
+                    letterSpacing={2}
+                    _groupHover={{
+                      background: "transparent",
+                    }}
+                    _hover={{ color: "var(--dim-gray)" }}
+                    _focus={{ background: "transparent" }}
+                    onClick={this.displayMegaMenu}
+                  >
+                    <Link to="/product/12">Royale Golden CTC</Link>
+                  </MenuItem>
+                </MenuGroup>
+                <MenuGroup
+                  title="CLASSICS"
+                  fontSize={12}
+                  fontWeight="400"
+                  color="var(--dim-gray)"
+                >
+                  <MenuItem
+                    fontWeight="400"
+                    letterSpacing={2}
+                    _groupHover={{
+                      background: "transparent",
+                    }}
+                    _hover={{ color: "var(--dim-gray)" }}
+                    _focus={{ background: "transparent" }}
+                    onClick={this.displayMegaMenu}
+                  >
+                    <Link to="/collection/3">Black Tea</Link>
+                  </MenuItem>
+                  <MenuItem
+                    fontWeight="400"
+                    letterSpacing={2}
+                    _groupHover={{
+                      background: "transparent",
+                    }}
+                    _hover={{ color: "var(--dim-gray)" }}
+                    _focus={{ background: "transparent" }}
+                    onClick={this.displayMegaMenu}
+                  >
+                    <Link to="/collection/5">White Tea</Link>
+                  </MenuItem>
+                  <MenuItem
+                    fontWeight="400"
+                    letterSpacing={2}
+                    _groupHover={{
+                      background: "transparent",
+                    }}
+                    _hover={{ color: "var(--dim-gray)" }}
+                    _focus={{ background: "transparent" }}
+                    onClick={this.displayMegaMenu}
+                  >
+                    <Link to="/collection/6">Green Tea</Link>
+                  </MenuItem>
+                </MenuGroup>
+                <MenuGroup
+                  title="WHOLESALE"
+                  fontSize={12}
+                  fontWeight="400"
+                  color="var(--dim-gray)"
+                >
+                  <MenuItem
+                    fontWeight="400"
+                    letterSpacing={2}
+                    _groupHover={{
+                      background: "transparent",
+                    }}
+                    _hover={{ color: "var(--dim-gray)" }}
+                    _focus={{ background: "transparent" }}
+                    onClick={this.displayMegaMenu}
+                  >
+                    <Link to="/contact-us">Inquiry</Link>
+                  </MenuItem>
+                </MenuGroup>
+                <MenuGroup>
+                  <MenuItem
+                    p={0}
+                    _groupHover={{
+                      background: "transparent",
+                      color: "var(--dim-gray)",
+                    }}
+                    _focus={{ background: "transparent" }}
+                    onClick={this.displayMegaMenu}
+                  >
+                    <Link to="/product/11">
+                      <Stack textAlign="center" fontWeight="400">
+                        <Image
+                          src="https://cdn.shopify.com/s/files/1/0287/1620/4135/collections/Rose_Green_Tea_1000x.jpg?v=1592641347"
+                          w={300}
+                        />
+                        <Text letterSpacing={2} mt={4}>
+                          ROSE GREEN
+                        </Text>
+                        <Text color="var(--dim-gray)" letterSpacing={2}>
+                          BACK IN STOCK
+                        </Text>
+                      </Stack>
+                    </Link>
+                  </MenuItem>
+                </MenuGroup>
+                <MenuGroup>
+                  <MenuItem
+                    p={0}
+                    _groupHover={{
+                      background: "transparent",
+                      color: "var(--dim-gray)",
+                    }}
+                    _focus={{ background: "transparent" }}
+                    onClick={this.displayMegaMenu}
+                  >
+                    <Link to="/product/9">
+                      <Stack textAlign="center" fontWeight="400">
+                        <Image
+                          src="https://cdn.shopify.com/s/files/1/0287/1620/4135/collections/Black_Pearl_1000x.jpg?v=1592641550"
+                          w={300}
+                        />
+                        <Text letterSpacing={2} mt={4}>
+                          SILVER PEARL
+                        </Text>
+                        <Text color="var(--dim-gray)" letterSpacing={2}>
+                          LABOUR OF LOVE
+                        </Text>
+                      </Stack>
+                    </Link>
+                  </MenuItem>
+                </MenuGroup>
+              </MenuList>
+            </Menu>
           </ListItem>
           <ListItem mx="2%" my={3}>
             <Link to="/about">ABOUT</Link>
