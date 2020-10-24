@@ -101,7 +101,7 @@ class Footer extends Component {
                   fontSize={14}
                   _hover={{ color: "var(--nero-black)" }}
                 >
-                  <Link to="/collection/all">All products</Link>
+                  <Link to="/products">All products</Link>
                 </ListItem>
                 <ListItem
                   color="var(--dim-gray)"
@@ -109,7 +109,7 @@ class Footer extends Component {
                   fontSize={14}
                   _hover={{ color: "var(--nero-black)" }}
                 >
-                  <Link to="/collection/award-winners">Award winners</Link>
+                  <Link to="/collection/1">Award winners</Link>
                 </ListItem>
                 <ListItem
                   color="var(--dim-gray)"
@@ -117,7 +117,7 @@ class Footer extends Component {
                   fontSize={14}
                   _hover={{ color: "var(--nero-black)" }}
                 >
-                  <Link to="/collection/signature-teas">Signature teas</Link>
+                  <Link to="/collection/2">Signature teas</Link>
                 </ListItem>
                 <ListItem
                   color="var(--dim-gray)"
@@ -125,7 +125,7 @@ class Footer extends Component {
                   fontSize={14}
                   _hover={{ color: "var(--nero-black)" }}
                 >
-                  <Link to="/collection/black-tea">Black teas</Link>
+                  <Link to="/collection/3">Black teas</Link>
                 </ListItem>
                 <ListItem
                   color="var(--dim-gray)"
@@ -133,7 +133,7 @@ class Footer extends Component {
                   fontSize={14}
                   _hover={{ color: "var(--nero-black)" }}
                 >
-                  <Link to="/collection/white-tea">White teas</Link>
+                  <Link to="/collection/5">White teas</Link>
                 </ListItem>
               </List>
             </Stack>
