@@ -5,7 +5,6 @@ import {
   List,
   ListItem,
   Icon,
-  IconButton,
   Menu,
   MenuButton,
   MenuList,
@@ -330,18 +329,6 @@ class Header extends Component {
             <Link to="/account">
               <Icon as={BiUser} size="27px" mr={4} />
             </Link>
-            <IconButton
-              variant="Ghost"
-              aria-label="Search product"
-              color="black"
-              icon="search-2"
-              size="lg"
-              h="auto"
-              w="auto"
-              mr={4}
-              p={0}
-              _focus={{ outline: "none" }}
-            />
             <Link to="/cart">
               <Icon as={BiShoppingBag} size="27px" mr={2} />
             </Link>
