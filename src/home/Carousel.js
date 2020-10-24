@@ -80,7 +80,7 @@ class Carousel extends Component {
                   >
                     Buy Handcrafted Award Winning Artisanal Teas
                   </Heading>
-                  <Link to="/collection/all" className="hero-button button-mw">
+                  <Link to="/products" className="hero-button button-mw">
                     SHOP NOW
                   </Link>
                 </Stack>
