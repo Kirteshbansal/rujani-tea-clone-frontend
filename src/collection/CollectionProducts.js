@@ -58,7 +58,7 @@ class CollectionProducts extends Component {
             const image = product.url2.split(",")[5];
             return (
               <Box mx="2%" my={5} key={product.id} w="21%">
-                <Link to={`product/${product.id}`}>
+                <Link to={`/product/${product.id}`}>
                   <Stack textAlign="center">
                     <Image
                       src={
