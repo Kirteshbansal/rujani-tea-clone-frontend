@@ -3,9 +3,17 @@ import { connect } from "react-redux";
 import { Link } from "react-router-dom";
 
 import { fetchProducts } from "./productsSlice";
-import { Box, Flex, Heading, Image, Stack, Text } from "@chakra-ui/core";
+import {
+  Box,
+  Flex,
+  Heading,
+  Image,
+  Stack,
+  Text,
+  Select,
+} from "@chakra-ui/core";
 
-class Category extends Component {
+class Products extends Component {
   constructor(props) {
     super(props);
     this.state = {
@@ -101,6 +109,40 @@ class Category extends Component {
           <Flex flexWrap="wrap" justifyContent="space-evenly">
             {product}
           </Flex>
+          <Flex
+            borderBottom="1.2px solid #666"
+            borderTop="1.2px solid #666"
+            justifyContent="flex-end"
+            px={2}
+            mt={3}
+            alignItems="center"
+          >
+            <Text mr={5} fontSize={21} fontWeight="500">
+              SORT
+            </Text>
+            <Select
+              variant="unstyled"
+              w="20%"
+              borderLeft="1.2px solid #666"
+              px={2}
+              py={3}
+              defaultValue="Default"
+            >
+              <option value="default">Default</option>
+              <option value="Alphabetically, A-Z" fontSize={15}>
+                Alphabetically, A-Z
+              </option>
+              <option value="Alphabetically, Z-A" fontSize={15}>
+                Alphabetically, Z-A
+              </option>
+              <option value="Price, low to high" fontSize={15}>
+                Price, low to high
+              </option>
+              <option value="Price, high to low" fontSize={15}>
+                Price, high to low
+              </option>
+            </Select>
+          </Flex>
         </Box>
       </>
     );
@@ -119,4 +161,4 @@ const mapDispatchToProps = (dispatch) => {
   };
 };
 
-export default connect(mapStateToProps, mapDispatchToProps)(Category);
+export default connect(mapStateToProps, mapDispatchToProps)(Products);
