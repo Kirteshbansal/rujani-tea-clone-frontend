@@ -6,6 +6,7 @@ import Header from "./components/Header";
 import Footer from "./components/Footer";
 import Home from "./home/Home";
 import Products from "./products/Products";
+import CollectionProducts from "./collection/CollectionProducts";
 
 class App extends Component {
   constructor(props) {
@@ -22,6 +23,10 @@ class App extends Component {
             <Route
               path="/products"
               render={(props) => <Products {...props} />}
+            />
+            <Route
+              path="/collection/:id"
+              render={(props) => <CollectionProducts {...props} />}
             />
           </Switch>
           <Footer />
