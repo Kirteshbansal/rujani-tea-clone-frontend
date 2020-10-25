@@ -17,13 +17,19 @@ import {
 import { Link } from "react-router-dom";
 import { BiUser, BiShoppingBag } from "react-icons/bi";
 
+import Cart from "../cart/Cart";
+
 class Header extends Component {
   constructor(props) {
     super(props);
     this.state = {
       displayMenu: false,
+      isOpen: false,
     };
   }
+
+  onOpen = () => this.setState({ isOpen: true });
+  onClose = () => this.setState({ isOpen: false });
 
   displayMegaMenu = () => {
     this.setState({ displayMenu: !this.state.displayMenu });
@@ -329,9 +335,25 @@ class Header extends Component {
             <Link to="/account">
               <Icon as={BiUser} size="27px" mr={4} />
             </Link>
-            <Link to="/cart">
-              <Icon as={BiShoppingBag} size="27px" mr={2} />
-            </Link>
+            <Button
+              outline="none"
+              bg="transparent"
+              _hover={{ backgroundColor: "transparent", outline: "none" }}
+              _active={{ backgroundColor: "transparent", outline: "none" }}
+              _focus={{ backgroundColor: "transparent", outline: "none" }}
+            >
+              <Icon
+                as={BiShoppingBag}
+                size="27px"
+                mr={2}
+                onClick={this.onOpen}
+              />
+            </Button>
+            <Cart
+              isOpen={this.state.isOpen}
+              onOpen={this.onOpen}
+              onClose={this.onClose}
+            />
           </Flex>
         </Flex>
       </Flex>
