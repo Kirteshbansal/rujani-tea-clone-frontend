@@ -17,3 +17,11 @@ export const getProductsByCollection = async (id) => {
     console.error(err);
   }
 };
+
+export const getProduct = async (id) => {
+  try {
+    return await axios.get(`${BASE_URL}product/${id}`);
+  } catch (err) {
+    console.error(err);
+  }
+};
