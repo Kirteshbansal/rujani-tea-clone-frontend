@@ -12,6 +12,7 @@ import {
   Stack,
   Text,
   Select,
+  Spinner,
 } from "@chakra-ui/core";
 
 class Products extends Component {
@@ -113,7 +114,11 @@ class Products extends Component {
             ALL PRODUCTS
           </Heading>
           <Flex flexWrap="wrap" justifyContent="space-evenly">
-            {product}
+            {this.props.loading ? (
+              <Spinner size="lg" alignSelf="center" />
+            ) : (
+              product
+            )}
           </Flex>
           <Flex
             borderBottom="1.2px solid #666"
