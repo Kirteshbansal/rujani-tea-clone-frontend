@@ -1,8 +1,9 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
 import { Link } from "react-router-dom";
+import { createSelector } from "@reduxjs/toolkit";
 
-import { fetchProducts } from "./productsSlice";
+import { fetchProducts, sortProducts } from "./productsSlice";
 import {
   Box,
   Flex,
@@ -46,6 +47,11 @@ class Products extends Component {
       img: "",
       productId: "",
     });
+  };
+
+  selectSortOption = (e) => {
+    const selectedOption = e.target.value;
+    this.props.sortProducts(selectedOption);
   };
 
   render() {
@@ -114,7 +120,7 @@ class Products extends Component {
             borderTop="1.2px solid #666"
             justifyContent="flex-end"
             px={2}
-            mt={3}
+            mt={6}
             alignItems="center"
           >
             <Text mr={5} fontSize={21} fontWeight="500">
@@ -126,21 +132,13 @@ class Products extends Component {
               borderLeft="1.2px solid #666"
               px={2}
               py={3}
-              defaultValue="Default"
+              defaultValue={this.props.sortOption}
+              onChange={this.selectSortOption}
             >
-              <option value="default">Default</option>
-              <option value="Alphabetically, A-Z" fontSize={15}>
-                Alphabetically, A-Z
-              </option>
-              <option value="Alphabetically, Z-A" fontSize={15}>
-                Alphabetically, Z-A
-              </option>
-              <option value="Price, low to high" fontSize={15}>
-                Price, low to high
-              </option>
-              <option value="Price, high to low" fontSize={15}>
-                Price, high to low
-              </option>
+              <option value="Alphabetically, A-Z">Alphabetically, A-Z</option>
+              <option value="Alphabetically, Z-A">Alphabetically, Z-A</option>
+              <option value="Price, low to high">Price, low to high</option>
+              <option value="Price, high to low">Price, high to low</option>
             </Select>
           </Flex>
         </Box>
@@ -149,15 +147,44 @@ class Products extends Component {
   }
 }
 
+const sortOptions = {
+  a_desc: "Alphabetically, Z-A",
+  p_asc: "Price, low to high",
+  p_desc: "Price, high to low",
+};
+
+const getProducts = (state) => state.products.products;
+const getSelectedSort = (state) => state.products.sortOption;
+
+const getSortedProducts = createSelector(
+  [getProducts, getSelectedSort],
+  (products, sortOption) => {
+    const productsInstance = [...products];
+    switch (sortOption) {
+      case sortOptions.a_desc:
+        return productsInstance.reverse();
+      case sortOptions.p_asc:
+        return productsInstance.sort((a, b) => a.price - b.price);
+      case sortOptions.p_desc:
+        return productsInstance.sort((a, b) => b.price - a.price);
+      default:
+        return productsInstance;
+    }
+  }
+);
+
 const mapStateToProps = (state) => {
   return {
-    products: [...state.products.products],
+    products: getSortedProducts(state),
+    sortOption: state.products.sortOption,
+    loading: state.products.loading,
   };
 };
 
 const mapDispatchToProps = (dispatch) => {
   return {
     fetchProducts: () => dispatch(fetchProducts()),
+    sortProducts: (selectedOption) => dispatch(sortProducts(selectedOption)),
   };
 };
 
