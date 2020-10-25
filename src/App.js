@@ -7,6 +7,7 @@ import Footer from "./components/Footer";
 import Home from "./home/Home";
 import Products from "./products/Products";
 import CollectionProducts from "./collection/CollectionProducts";
+import Product from "./product/Product";
 
 class App extends Component {
   constructor(props) {
@@ -27,6 +28,10 @@ class App extends Component {
             <Route
               path="/collection/:id"
               render={(props) => <CollectionProducts {...props} />}
+            />
+            <Route
+              path="/product/:id"
+              render={(props) => <Product {...props} />}
             />
           </Switch>
           <Footer />
