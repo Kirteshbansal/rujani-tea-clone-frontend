@@ -91,7 +91,7 @@ class Product extends Component {
             <span style={{ fontWeight: "bold" }}>
               Recommended time of day:{" "}
             </span>
-            {product.taste}
+            {product.recommendedTime}
           </Text>
           <Stack mt={4} color="var(--dim-gray)">
             <Text fontSize={13} fontWeight="400" letterSpacing={2}>
