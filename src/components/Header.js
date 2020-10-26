@@ -28,8 +28,14 @@ class Header extends Component {
     };
   }
 
-  onOpen = () => this.setState({ isOpen: true });
-  onClose = () => this.setState({ isOpen: false });
+  onOpen = () => {
+    document.body.style.overflowY = "hidden";
+    this.setState({ isOpen: true });
+  };
+  onClose = () => {
+    document.body.style.overflowY = "unset";
+    this.setState({ isOpen: false });
+  };
 
   displayMegaMenu = () => {
     this.setState({ displayMenu: !this.state.displayMenu });
@@ -75,11 +81,15 @@ class Header extends Component {
               <MenuButton
                 as={Button}
                 variant="unstyle"
-                fontSize="1.1em"
+                fontSize="1.05em"
                 fontWeight="600"
                 letterSpacing="1.5px"
-                color="var(--nero-black)"
-                _focus={{ background: "transparent", outline: "none" }}
+                _focus={{
+                  background: "transparent",
+                  outline: "none",
+                  textShadow: "none",
+                  color: "var(--nero-black)",
+                }}
                 p={0}
                 boxShadow="none"
                 onClick={this.displayMegaMenu}
