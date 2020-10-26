@@ -120,19 +120,19 @@ class Products extends Component {
                   height="20px"
                   my="10px"
                   colorStart="#f2f2f2"
-                  colorEnd="#555"
+                  colorEnd="#C8C8C8"
                 />
                 <Skeleton
                   height="20px"
                   my="10px"
                   colorStart="#f2f2f2"
-                  colorEnd="#555"
+                  colorEnd="#C8C8C8"
                 />
                 <Skeleton
                   height="20px"
                   my="10px"
                   colorStart="#f2f2f2"
-                  colorEnd="#555"
+                  colorEnd="#C8C8C8"
                 />
               </Stack>
             ) : (
