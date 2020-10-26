@@ -10,7 +10,6 @@ import {
   FormControl,
   Input,
   Button,
-  Box,
 } from "@chakra-ui/core";
 import { Link } from "react-router-dom";
 import { RiFacebookFill, RiInstagramLine } from "react-icons/ri";
