@@ -3,23 +3,30 @@ import {
   Text,
   Flex,
   Heading,
-  Spinner,
   Stack,
   Image,
   Divider,
   Icon,
   Button,
+  NumberInput,
+  NumberInputField,
+  NumberInputStepper,
+  NumberIncrementStepper,
+  NumberDecrementStepper,
+  Skeleton,
 } from "@chakra-ui/core";
 import { connect } from "react-redux";
-import { Link } from "react-router-dom";
 import { RiFacebookFill, RiInstagramLine } from "react-icons/ri";
 
 import { fetchProduct } from "./productSlice";
+import { addProductToCart } from "../cart/cartSlice";
 
 class Product extends Component {
   constructor(props) {
     super(props);
-    this.state = {};
+    this.state = {
+      selectedQuantity: 1,
+    };
   }
 
   componentDidMount() {
@@ -31,6 +38,24 @@ class Product extends Component {
       this.props.fetchProduct(this.props.match.params.id);
     }
   }
+
+  handleProductQuantity = (quantity) => {
+    const selectedQuantity = quantity;
+    this.setState({
+      selectedQuantity,
+    });
+  };
+
+  handleAddToCart = (productDetails) => {
+    const { id, name, price, url2 } = productDetails;
+    const image = url2.split(",")[0];
+    const { selectedQuantity } = this.state;
+    const product = { id, name, price, selectedQuantity, image };
+    this.props.addProductToCart(product);
+    this.setState({
+      selectedQuantity: 1,
+    });
+  };
 
   render() {
     const { product } = this.props;
@@ -121,6 +146,31 @@ class Product extends Component {
             <span style={{ fontWeight: "bold" }}>Stock: </span>
             {product.stock > 0 ? "In stock" : "Sold out"}
           </Text>
+          <Text fontSize={13} fontWeight="400" letterSpacing={2} mt={4}>
+            Quantity:
+          </Text>
+          <NumberInput
+            size="sm"
+            value={this.state.selectedQuantity}
+            min={1}
+            step={1}
+            w={80}
+            border="1px solid var(--nero-black)"
+            onChange={this.handleProductQuantity}
+          >
+            <NumberInputField
+              bg="transparent"
+              maxLength="3"
+              border="none"
+              _focus={{
+                outline: "none",
+              }}
+            />
+            <NumberInputStepper zIndex={0}>
+              <NumberIncrementStepper />
+              <NumberDecrementStepper />
+            </NumberInputStepper>
+          </NumberInput>
           <Button
             variant="solid"
             bg="var(--nero-black)"
@@ -141,6 +191,7 @@ class Product extends Component {
             }}
             _focus={{ outline: "none" }}
             _active={{ bg: "transparent" }}
+            onClick={() => this.handleAddToCart(product)}
           >
             ADD TO CART - RS. {product.price}
           </Button>
@@ -150,7 +201,26 @@ class Product extends Component {
     return (
       <Flex px="8%" py="3%" backgroundColor="#efefef" justifyContent="center">
         {this.props.loading ? (
-          <Spinner size="lg" alignSelf="center" />
+          <Stack w="100%" justifyContent="center">
+            <Skeleton
+              height="20px"
+              my="10px"
+              colorStart="#f2f2f2"
+              colorEnd="#555"
+            />
+            <Skeleton
+              height="20px"
+              my="10px"
+              colorStart="#f2f2f2"
+              colorEnd="#555"
+            />
+            <Skeleton
+              height="20px"
+              my="10px"
+              colorStart="#f2f2f2"
+              colorEnd="#555"
+            />
+          </Stack>
         ) : (
           productJsx
         )}
@@ -169,6 +239,7 @@ const mapStateToProps = (state) => {
 const mapDispatchToProps = (dispatch) => {
   return {
     fetchProduct: (id) => dispatch(fetchProduct(id)),
+    addProductToCart: (product) => dispatch(addProductToCart(product)),
   };
 };
 export default connect(mapStateToProps, mapDispatchToProps)(Product);
