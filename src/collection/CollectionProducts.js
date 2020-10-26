@@ -1,7 +1,15 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
 import { Link } from "react-router-dom";
-import { Box, Flex, Heading, Image, Stack, Text } from "@chakra-ui/core";
+import {
+  Box,
+  Flex,
+  Heading,
+  Image,
+  Stack,
+  Text,
+  Skeleton,
+} from "@chakra-ui/core";
 
 import { fetchProductsByCollection } from "./collectionSlice";
 
@@ -108,10 +116,37 @@ class CollectionProducts extends Component {
             mb={10}
             color="var(--nero-black)"
           >
-            {collection.categoryName}
+            {this.props.loading ? null : collection.categoryName}
           </Heading>
-          <Flex flexWrap="wrap" justifyContent="flex-start" px={16}>
-            {product}
+          <Flex
+            flexWrap="wrap"
+            justifyContent={this.props.loading ? "center" : "flex-start"}
+            px={16}
+          >
+            {this.props.loading ? (
+              <Stack w="90%" justifyContent="center">
+                <Skeleton
+                  height="20px"
+                  my="10px"
+                  colorStart="#f2f2f2"
+                  colorEnd="#555"
+                />
+                <Skeleton
+                  height="20px"
+                  my="10px"
+                  colorStart="#f2f2f2"
+                  colorEnd="#555"
+                />
+                <Skeleton
+                  height="20px"
+                  my="10px"
+                  colorStart="#f2f2f2"
+                  colorEnd="#555"
+                />
+              </Stack>
+            ) : (
+              product
+            )}
           </Flex>
         </Box>
       </>
@@ -122,6 +157,7 @@ class CollectionProducts extends Component {
 const mapStateToProps = (state) => {
   return {
     collection: { ...state.collectionProducts.collectionProducts },
+    loading: state.collectionProducts.loading,
   };
 };
 
