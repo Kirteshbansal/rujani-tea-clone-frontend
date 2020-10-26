@@ -106,6 +106,7 @@ class CartDrawer extends Component {
                 variant="link"
                 bg="transparent"
                 _focus={{ outline: "none" }}
+                fontWeight="300"
                 onClick={() => this.handleRemoveProduct(product.id)}
               >
                 Remove
