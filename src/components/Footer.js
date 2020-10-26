@@ -244,27 +244,25 @@ class Footer extends Component {
               </Flex>
             </Stack>
           </Flex>
-          <Flex px={80} justifyContent="space-between" mt={50}>
-            <Box>
-              <Text
-                letterSpacing="1.5px"
-                textTransform="uppercase"
-                fontSize={12}
-                color="var(--nero-black)"
+          <Flex
+            px={80}
+            justifyContent="space-between"
+            mt={50}
+            alignItems="center"
+          >
+            <Text
+              letterSpacing="1.5px"
+              textTransform="uppercase"
+              fontSize={12}
+              color="var(--nero-black)"
+            >
+              <Link
+                to="/"
+                _hover={{ textDecoration: "none", color: "var(--dim-gray)" }}
               >
-                <Link
-                  to="/"
-                  _hover={{ textDecoration: "none", color: "var(--dim-gray)" }}
-                >
-                  © Rujani Tea India
-                </Link>
-              </Text>
-              <Text color="var(--dim-gray)" fontSize="sm" marginTop={3}>
-                <Link to="#" _hover={{ textDecoration: "none" }}>
-                  Powered by Shopify
-                </Link>
-              </Text>
-            </Box>
+                © Rujani Tea India
+              </Link>
+            </Text>
             <PaymentModes />
           </Flex>
         </Stack>
