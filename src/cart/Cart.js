@@ -148,44 +148,46 @@ class CartDrawer extends Component {
             <DrawerBody overflowY="auto">
               {cartProducts.length > 0 ? cartItem : "Your cart is empty."}
             </DrawerBody>
-            <DrawerFooter
-              px={8}
-              py={6}
-              borderTop="1px solid #ccc"
-              display="flex"
-              flexDirection="column"
-            >
-              <Text
-                mb={4}
-                fontSize={14}
-                color="var(--dim-gray)"
-                fontWeight="200"
-              >
-                Inclusive of all shipping & taxes.
-              </Text>
-              <Button
-                variant="solid"
-                bg="var(--nero-black)"
-                rounded={0}
-                color="#fff"
-                border="1px solid var(--nero-black)"
-                fontSize={15}
-                fontWeight="400"
-                letterSpacing={2}
-                w="100%"
+            {cartProducts.length <= 0 ? null : (
+              <DrawerFooter
+                px={8}
                 py={6}
-                _hover={{
-                  outline: "none",
-                  bg: "transparent",
-                  color: "var(--nero-black)",
-                  border: "1px solid var(--nero-black)",
-                }}
-                _focus={{ outline: "none" }}
-                _active={{ bg: "transparent" }}
+                borderTop="1px solid #ccc"
+                display="flex"
+                flexDirection="column"
               >
-                CHECKOUT - RS. {totalCost}
-              </Button>
-            </DrawerFooter>
+                <Text
+                  mb={4}
+                  fontSize={14}
+                  color="var(--dim-gray)"
+                  fontWeight="200"
+                >
+                  Inclusive of all shipping & taxes.
+                </Text>
+                <Button
+                  variant="solid"
+                  bg="var(--nero-black)"
+                  rounded={0}
+                  color="#fff"
+                  border="1px solid var(--nero-black)"
+                  fontSize={15}
+                  fontWeight="400"
+                  letterSpacing={2}
+                  w="100%"
+                  py={6}
+                  _hover={{
+                    outline: "none",
+                    bg: "transparent",
+                    color: "var(--nero-black)",
+                    border: "1px solid var(--nero-black)",
+                  }}
+                  _focus={{ outline: "none" }}
+                  _active={{ bg: "transparent" }}
+                >
+                  CHECKOUT - RS. {totalCost}
+                </Button>
+              </DrawerFooter>
+            )}
           </DrawerContent>
         </Drawer>
       </>
