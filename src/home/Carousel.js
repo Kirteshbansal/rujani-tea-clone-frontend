@@ -31,11 +31,15 @@ class Carousel extends Component {
       dots: true,
       fade: true,
       infinite: true,
-      speed: 1200,
       slidesToShow: 1,
       slidesToScroll: 1,
       initialSlide: 1,
       focusOnSelect: false,
+      autoplay: true,
+      speed: 1200,
+      autoplaySpeed: 5000,
+      cssEase: "ease",
+      pauseOnHover: false,
     };
 
     return (
