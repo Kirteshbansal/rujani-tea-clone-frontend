@@ -54,28 +54,21 @@ class SignUp extends Component {
     try {
       e.preventDefault();
       const { firstName, lastName, email, password } = this.state;
-      if (
-        firstName.length > 3 &&
-        lastName.length > 3 &&
-        email.length > 10 &&
-        password.length > 6
-      ) {
-        const user = {
-          firstName,
-          lastName,
-          email,
-          password,
-        };
-        const response = await this.props.createUser(user);
-        this.setState({
-          firstName: "",
-          lastName: "",
-          email: "",
-          password: "",
-        });
-        if (response.payload.success) {
-          this.props.history.push("/login");
-        }
+      const user = {
+        firstName,
+        lastName,
+        email,
+        password,
+      };
+      const response = await this.props.createUser(user);
+      this.setState({
+        firstName: "",
+        lastName: "",
+        email: "",
+        password: "",
+      });
+      if (response.payload.success) {
+        this.props.history.push("/login");
       }
     } catch (err) {
       console.error(err);
