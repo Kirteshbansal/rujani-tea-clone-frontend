@@ -182,7 +182,7 @@ class Footer extends Component {
                 </ListItem>
               </List>
             </Stack>
-            <Stack w="18%" mb={50} p={2}>
+            <Stack w="18%" mb={50} p={2} px={4}>
               <Heading
                 as="h6"
                 size="xs"
@@ -211,10 +211,9 @@ class Footer extends Component {
                       placeholder="Enter your email"
                       rounded={0}
                       size="md"
-                      border="1px solid #777"
+                      isFullWidth={true}
                       _hover={{ outline: "none", border: "1px solid #000" }}
                       _focus={{ outline: "none", border: "1px solid #000" }}
-                      w={290}
                     />
                     <Button
                       variant="solid"
