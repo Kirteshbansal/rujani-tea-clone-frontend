@@ -13,9 +13,11 @@ import {
   Button,
   Text,
   Stack,
+  Badge,
 } from "@chakra-ui/core";
 import { Link } from "react-router-dom";
 import { BiUser, BiShoppingBag } from "react-icons/bi";
+import { connect } from "react-redux";
 
 import Cart from "../cart/Cart";
 
@@ -342,7 +344,7 @@ class Header extends Component {
           alignItems="center"
         >
           <Flex alignItems="center">
-            <Link to="/account">
+            <Link to="/profile">
               <Icon as={BiUser} size="27px" mr={4} />
             </Link>
             <Button
@@ -358,6 +360,21 @@ class Header extends Component {
                 mr={2}
                 onClick={this.onOpen}
               />
+              {this.props.cartitems > 0 ? (
+                <Badge
+                  position="absolute"
+                  right="10px"
+                  top="5px"
+                  bg="var(--nero-black)"
+                  color="white"
+                  fontSize={13}
+                  verticalAlign="middle"
+                  rounded="50%"
+                  pt="0.10rem"
+                >
+                  {this.props.cartitems}
+                </Badge>
+              ) : null}
             </Button>
             <Cart
               isOpen={this.state.isOpen}
@@ -371,4 +388,10 @@ class Header extends Component {
   }
 }
 
-export default Header;
+const mapStateToProps = (state) => {
+  return {
+    cartitems: [...state.cart.cartProducts].length,
+  };
+};
+
+export default connect(mapStateToProps)(Header);
