@@ -22,6 +22,7 @@ import {
 } from "@chakra-ui/core";
 import { connect } from "react-redux";
 import { RiTruckLine } from "react-icons/ri";
+import { Link } from "react-router-dom";
 
 import { changeItemQuantity, removeProduct } from "./cartSlice";
 
@@ -164,28 +165,9 @@ class CartDrawer extends Component {
                 >
                   Inclusive of all shipping & taxes.
                 </Text>
-                <Button
-                  variant="solid"
-                  bg="var(--nero-black)"
-                  rounded={0}
-                  color="#fff"
-                  border="1px solid var(--nero-black)"
-                  fontSize={15}
-                  fontWeight="400"
-                  letterSpacing={2}
-                  w="100%"
-                  py={6}
-                  _hover={{
-                    outline: "none",
-                    bg: "transparent",
-                    color: "var(--nero-black)",
-                    border: "1px solid var(--nero-black)",
-                  }}
-                  _focus={{ outline: "none" }}
-                  _active={{ bg: "transparent" }}
-                >
+                <Link to="/checkout" className="checkout-button">
                   CHECKOUT - RS. {totalCost}
-                </Button>
+                </Link>
               </DrawerFooter>
             )}
           </DrawerContent>
