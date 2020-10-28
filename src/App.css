@@ -42,3 +42,23 @@
 .button-lw {
   width: 15em;
 }
+
+.checkout-button {
+  color: white;
+  margin-top: 13px;
+  padding: 11px 10px;
+  background-color: var(--nero-black);
+  text-align: center;
+  font-size: 13.5px;
+  letter-spacing: 1.5px;
+  border: 1.5px solid transparent;
+  box-shadow: 0 0 1.5px #fff;
+  font-weight: 500;
+  transition: all 0.3s ease;
+}
+
+.checkout-button:hover {
+  background-color: transparent;
+  color: var(--nero-black);
+  border: 1.5px solid var(--nero-black);
+}
