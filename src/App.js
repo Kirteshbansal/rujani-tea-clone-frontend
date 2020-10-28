@@ -1,5 +1,10 @@
 import React, { Component } from "react";
-import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
+import {
+  BrowserRouter as Router,
+  Switch,
+  Route,
+  Redirect,
+} from "react-router-dom";
 
 import "./App.css";
 import Header from "./components/Header";
@@ -8,6 +13,10 @@ import Home from "./home/Home";
 import Products from "./products/Products";
 import CollectionProducts from "./collection/CollectionProducts";
 import Product from "./product/Product";
+import Checkout from "./checkout/Checkout";
+import LogIn from "./auth/LogIn";
+import SignUp from "./auth/SignUp";
+import isAuth from "./auth/auth";
 
 class App extends Component {
   constructor(props) {
@@ -33,6 +42,12 @@ class App extends Component {
               path="/product/:id"
               render={(props) => <Product {...props} />}
             />
+            <Route path="/login" render={(props) => <LogIn {...props} />} />
+            <Route
+              path="/account/register"
+              render={(props) => <SignUp {...props} />}
+            />
+            <Route path="/checkout" exact component={isAuth(Checkout)} />;
           </Switch>
           <Footer />
         </Router>
