@@ -17,12 +17,40 @@ import { RiTruckLine, RiCheckboxCircleFill } from "react-icons/ri";
 import { connect } from "react-redux";
 
 import CheckoutItems from "./CheckoutItems";
+import { manageAddress } from "../auth/authSlice";
 
 class Checkout extends Component {
   constructor(props) {
     super(props);
-    this.state = {};
+    this.state = { addr1: "", addr2: "", city: "", state: "", zip: null };
   }
+
+  handleAddr1 = (e) => this.setState({ addr1: e.target.value });
+  handleAddr2 = (e) => this.setState({ addr2: e.target.value });
+  handleCity = (e) => this.setState({ city: e.target.value });
+  handleState = (e) => this.setState({ state: e.target.value });
+  handleZip = (e) =>
+    this.setState({ zip: e.target.value }, () => console.log(this.state));
+
+  handleAddress = async (e) => {
+    try {
+      e.preventDefault();
+      const { user } = this.props;
+      const addr = {
+        addr1:
+          this.state.addr1.length > 0 ? this.state.addr1 : user.address.addr1,
+        addr2:
+          this.state.addr2.length > 0 ? this.state.addr2 : user.address.addr2,
+        city: this.state.city.length > 0 ? this.state.city : user.address.city,
+        state:
+          this.state.state.length > 0 ? this.state.state : user.address.state,
+        zip: this.state.zip !== null ? this.state.zip : user.address.zip,
+      };
+      await this.props.manageAddress(addr, user.id);
+    } catch (err) {
+      console.error(err);
+    }
+  };
 
   render() {
     const { user } = this.props;
@@ -165,7 +193,7 @@ class Checkout extends Component {
                       isRequired
                       rounded={0}
                       bg="transparent"
-                      // defaultValue={user.address.addr1 }
+                      defaultValue={user.address.addr1}
                       fontSize={15}
                       outline="none"
                       border="1px"
@@ -179,6 +207,7 @@ class Checkout extends Component {
                         border: "1px",
                         borderColor: "var(--nero-black)",
                       }}
+                      onChange={this.handleAddr1}
                     />
                   </FormControl>
                   <FormControl display="flex" alignItems="center">
@@ -191,7 +220,7 @@ class Checkout extends Component {
                       isRequired
                       rounded={0}
                       bg="transparent"
-                      // defaultValue={user.address.addr2}
+                      defaultValue={user.address.addr2}
                       fontSize={15}
                       outline="none"
                       border="1px"
@@ -205,6 +234,7 @@ class Checkout extends Component {
                         border: "1px",
                         borderColor: "var(--nero-black)",
                       }}
+                      onChange={this.handleAddr2}
                     />
                   </FormControl>
                 </Stack>
@@ -219,7 +249,7 @@ class Checkout extends Component {
                       isRequired
                       rounded={0}
                       bg="transparent"
-                      // defaultValue={user.address.city}
+                      defaultValue={user.address.city}
                       fontSize={15}
                       outline="none"
                       border="1px"
@@ -233,6 +263,7 @@ class Checkout extends Component {
                         border: "1px",
                         borderColor: "var(--nero-black)",
                       }}
+                      onChange={this.handleCity}
                     />
                   </FormControl>
                   <FormControl display="flex" w="50%" alignItems="center">
@@ -243,7 +274,7 @@ class Checkout extends Component {
                       type="text"
                       id="state"
                       isRequired
-                      // defaultValue={user.address.state || ""}
+                      defaultValue={user.address.state}
                       rounded={0}
                       bg="transparent"
                       fontSize={15}
@@ -259,6 +290,7 @@ class Checkout extends Component {
                         border: "1px",
                         borderColor: "var(--nero-black)",
                       }}
+                      onChange={this.handleCity}
                     />
                   </FormControl>
                 </Stack>
@@ -297,7 +329,9 @@ class Checkout extends Component {
                       type="number"
                       id="state"
                       isRequired
-                      // defaultValue={user.address.zip}
+                      defaultValue={user.address.zip}
+                      minLength="6"
+                      maxLength="6"
                       rounded={0}
                       bg="transparent"
                       fontSize={15}
@@ -313,6 +347,7 @@ class Checkout extends Component {
                         border: "1px",
                         borderColor: "var(--nero-black)",
                       }}
+                      onChange={this.handleZip}
                     />
                   </FormControl>
                 </Stack>
@@ -328,7 +363,7 @@ class Checkout extends Component {
                     rounded={0}
                     bg="transparent"
                     placeholder="(optional)"
-                    // defaultValue={user.phone}
+                    defaultValue={user.phone}
                     fontSize={15}
                     outline="none"
                     border="1px"
@@ -349,27 +384,52 @@ class Checkout extends Component {
                 <Link to="/" color="var(--dim-gray)">
                   {"< "}Return to home
                 </Link>
-                <Button
-                  variant="solid"
-                  bg="var(--nero-black)"
-                  rounded={0}
-                  color="#fff"
-                  border="1px solid var(--nero-black)"
-                  fontSize={14}
-                  fontWeight="400"
-                  letterSpacing={2}
-                  w="40%"
-                  _hover={{
-                    outline: "none",
-                    bg: "transparent",
-                    color: "var(--nero-black)",
-                    border: "1px solid var(--nero-black)",
-                  }}
-                  _focus={{ outline: "none" }}
-                  _active={{ bg: "transparent" }}
-                >
-                  Countinue to shopping
-                </Button>
+                <Stack>
+                  <Button
+                    variant="solid"
+                    bg="var(--nero-black)"
+                    rounded={0}
+                    color="#fff"
+                    border="1px solid var(--nero-black)"
+                    fontSize={14}
+                    fontWeight="400"
+                    letterSpacing={2}
+                    w="100%"
+                    _hover={{
+                      outline: "none",
+                      bg: "transparent",
+                      color: "var(--nero-black)",
+                      border: "1px solid var(--nero-black)",
+                    }}
+                    _focus={{ outline: "none" }}
+                    _active={{ bg: "transparent" }}
+                    onClick={this.handleAddress}
+                  >
+                    Update address
+                  </Button>
+                  <Button
+                    variant="solid"
+                    bg="var(--nero-black)"
+                    rounded={0}
+                    color="#fff"
+                    border="1px solid var(--nero-black)"
+                    fontSize={14}
+                    fontWeight="400"
+                    letterSpacing={2}
+                    w="100%"
+                    mt={3}
+                    _hover={{
+                      outline: "none",
+                      bg: "transparent",
+                      color: "var(--nero-black)",
+                      border: "1px solid var(--nero-black)",
+                    }}
+                    _focus={{ outline: "none" }}
+                    _active={{ bg: "transparent" }}
+                  >
+                    Countinue to shopping
+                  </Button>
+                </Stack>
               </Flex>
             </Stack>
           </Box>
@@ -391,7 +451,9 @@ const mapStateToProps = (state) => {
 };
 
 const mapDispatchToProps = (dispatch) => {
-  return {};
+  return {
+    manageAddress: (addr, id) => dispatch(manageAddress(addr, id)),
+  };
 };
 
 export default connect(mapStateToProps, mapDispatchToProps)(Checkout);
