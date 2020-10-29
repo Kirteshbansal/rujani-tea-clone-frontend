@@ -63,7 +63,7 @@ class CheckoutItems extends Component {
     return (
       <>
         <Stack spacing={4}>{checkoutItem}</Stack>
-        <Divider w="70%" bg="#ccc" my={5} />
+        <Divider w="70%" borderColor="#999" my={5} />
         <Text
           mb={4}
           fontSize={14}
