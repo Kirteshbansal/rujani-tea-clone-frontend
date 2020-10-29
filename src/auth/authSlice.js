@@ -1,6 +1,11 @@
 import { createSlice, createAsyncThunk } from "@reduxjs/toolkit";
 
-import { userRegister, userLogIn, userAuth } from "../userService";
+import {
+  userRegister,
+  userLogIn,
+  // userAuth,
+  updateAddress,
+} from "../userService";
 
 export const createUser = createAsyncThunk("user/createUser", async (user) => {
   try {
@@ -20,11 +25,24 @@ export const userLogin = createAsyncThunk("user/userLogin", async (user) => {
   }
 });
 
-export const userAuthentication = createAsyncThunk(
-  "user/userAuthentication",
-  async (thunkAPI) => {
+// export const userAuthentication = createAsyncThunk(
+//   "user/userAuthentication",
+//   async (thunkAPI) => {
+//     try {
+//       const response = await userAuth();
+//       return response.data;
+//     } catch (err) {
+//       console.error(err);
+//     }
+//   }
+// );
+
+export const manageAddress = createAsyncThunk(
+  "user/manageAddress",
+  async (addr, id) => {
     try {
-      const response = await userAuth();
+      const response = await updateAddress(addr, id);
+      console.log(response);
       return response.data;
     } catch (err) {
       console.error(err);
@@ -41,8 +59,23 @@ const userSlice = createSlice({
     loading: false,
     error: "",
   },
-  reducers: {},
+  reducers: {
+    userLogout(state, action) {
+      state.loginSuccess = false;
+      console.log(state.loginSuccess);
+    },
+  },
   extraReducers: {
+    [createUser.pending]: (state) => {
+      state.loading = true;
+    },
+    [createUser.fulfilled]: (state, action) => {
+      state.loading = false;
+    },
+    [createUser.rejected]: (state, action) => {
+      state.loading = false;
+      state.error = action.error.message;
+    },
     [userLogin.pending]: (state) => {
       state.loading = true;
     },
@@ -55,14 +88,26 @@ const userSlice = createSlice({
       state.loading = false;
       state.error = action.error.message;
     },
-    [userAuthentication.fulfilled]: (state, action) => {
-      console.log("user authentication", action.payload);
-      // state.isAuth = action.payload.isAuth;
-      // state.loading = false;
+    // [userAuthentication.fulfilled]: (state, action) => {
+    //   console.log("user authentication", action.payload);
+    // state.isAuth = action.payload.isAuth;
+    // state.loading = false;
+    // },
+    [manageAddress.pending]: (state) => {
+      state.loading = true;
+    },
+    [manageAddress.fulfilled]: (state, action) => {
+      console.log(action);
+      state.user.address = { ...action.payload };
+      state.loading = false;
+    },
+    [manageAddress.rejected]: (state, action) => {
+      state.loading = false;
+      state.error = action.error.message;
     },
   },
 });
 
-// export const {} = userSlice.actions;
+export const { userLogout } = userSlice.actions;
 
 export default userSlice.reducer;
