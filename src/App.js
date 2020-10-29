@@ -16,7 +16,9 @@ import Product from "./product/Product";
 import Checkout from "./checkout/Checkout";
 import LogIn from "./auth/LogIn";
 import SignUp from "./auth/SignUp";
-import isAuth from "./auth/auth";
+// import isAuth from "./auth/auth";
+import UserProfile from "./userProfile/UserProfile";
+import { connect } from "react-redux";
 
 class App extends Component {
   constructor(props) {
@@ -24,6 +26,7 @@ class App extends Component {
     this.state = {};
   }
   render() {
+    const { loginSuccess } = this.props;
     return (
       <>
         <Router>
@@ -44,10 +47,23 @@ class App extends Component {
             />
             <Route path="/login" render={(props) => <LogIn {...props} />} />
             <Route
+              path="/profile"
+              render={(props) => {
+                return loginSuccess === true ? (
+                  <UserProfile {...props} />
+                ) : (
+                  <Redirect to="/login" />
+                );
+              }}
+            />
+            <Route path="/checkout">
+              {loginSuccess ? <Checkout /> : <Redirect to="/login" />}
+            </Route>
+            <Route
               path="/account/register"
               render={(props) => <SignUp {...props} />}
             />
-            <Route path="/checkout" exact component={isAuth(Checkout)} />;
+            {/* <Route path="/checkout" exact component={isAuth(Checkout)} />; */}
           </Switch>
           <Footer />
         </Router>
@@ -56,4 +72,10 @@ class App extends Component {
   }
 }
 
-export default App;
+const mapStateToProps = (state) => {
+  return {
+    loginSuccess: state.user.loginSuccess,
+  };
+};
+
+export default connect(mapStateToProps)(App);
