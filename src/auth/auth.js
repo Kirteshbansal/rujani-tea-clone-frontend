@@ -35,7 +35,6 @@ export default function isAuth(ReceivedComponent) {
 
     render() {
       const { loading } = this.state;
-      console.log(this.props);
       return (
         <>
           {loading ? (
@@ -76,8 +75,6 @@ export default function isAuth(ReceivedComponent) {
 
   const mapStateToProps = (state) => {
     return {
-      //   loading: state.user.loading,
-      isAuth: state.user.isAuth,
       loginSuccess: state.user.loginSuccess,
     };
   };
