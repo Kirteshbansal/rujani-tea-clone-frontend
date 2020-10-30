@@ -291,7 +291,7 @@ class Checkout extends Component {
                         border: "1px",
                         borderColor: "var(--nero-black)",
                       }}
-                      onChange={this.handleCity}
+                      onChange={this.handleState}
                     />
                   </FormControl>
                 </Stack>
