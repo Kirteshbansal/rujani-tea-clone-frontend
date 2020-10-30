@@ -29,8 +29,7 @@ class Checkout extends Component {
   handleAddr2 = (e) => this.setState({ addr2: e.target.value });
   handleCity = (e) => this.setState({ city: e.target.value });
   handleState = (e) => this.setState({ state: e.target.value });
-  handleZip = (e) =>
-    this.setState({ zip: e.target.value }, () => console.log(this.state));
+  handleZip = (e) => this.setState({ zip: e.target.value });
 
   handleAddress = async (e) => {
     try {
