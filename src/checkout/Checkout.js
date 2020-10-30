@@ -36,7 +36,9 @@ class Checkout extends Component {
     try {
       e.preventDefault();
       const { user } = this.props;
+      const { id } = user;
       const addr = {
+        id: id,
         addr1:
           this.state.addr1.length > 0 ? this.state.addr1 : user.address.addr1,
         addr2:
@@ -46,7 +48,7 @@ class Checkout extends Component {
           this.state.state.length > 0 ? this.state.state : user.address.state,
         zip: this.state.zip !== null ? this.state.zip : user.address.zip,
       };
-      await this.props.manageAddress(addr, user.id);
+      await this.props.manageAddress(addr);
     } catch (err) {
       console.error(err);
     }
@@ -452,7 +454,8 @@ const mapStateToProps = (state) => {
 
 const mapDispatchToProps = (dispatch) => {
   return {
-    manageAddress: (addr, id) => dispatch(manageAddress(addr, id)),
+    // manageAddress: (addr, id) => dispatch(manageAddress(addr, id)),
+    manageAddress: (addr) => dispatch(manageAddress(addr)),
   };
 };
 
