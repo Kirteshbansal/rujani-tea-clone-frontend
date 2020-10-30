@@ -40,7 +40,9 @@ class UserProfile extends Component {
   onClose = () => this.setState({ isOpen: false });
   handleUserLogOut = () => {
     this.props.userLogout();
-    this.props.history.push("/");
+    localStorage.removeItem("token");
+    console.log("logout", this.props);
+    this.props.props.history.push("/");
   };
 
   //   handleFirstName = (e) => this.setState({ firstName: e.target.value });
@@ -73,7 +75,7 @@ class UserProfile extends Component {
   };
 
   render() {
-    const { user, loginSuccess } = this.props;
+    const { user } = this.props;
     return (
       <>
         <Stack bg="#efefef" px="15%" py="3%" jus>
@@ -94,7 +96,7 @@ class UserProfile extends Component {
             letterSpacing={2}
             fontWeight="md"
             fontSize={12}
-            w="6%"
+            w="5%"
             onClick={this.handleUserLogOut}
           >
             LOGOUT
@@ -118,7 +120,7 @@ class UserProfile extends Component {
             color="var(--nero-black)"
           >
             Welcome back,
-            {loginSuccess ? `${user.firstName} ${user.lastName}` : ""}!
+            {`${user.firstName} ${user.lastName}`}!
           </Text>
           <Flex mt={55} justifyContent="space-between">
             <Stack w="63%">
@@ -463,7 +465,6 @@ class UserProfile extends Component {
 const mapStateToProps = (state) => {
   return {
     user: { ...state.user.user },
-    loginSuccess: state.user.loginSuccess,
   };
 };
 
