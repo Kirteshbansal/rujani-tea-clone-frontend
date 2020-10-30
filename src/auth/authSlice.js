@@ -42,9 +42,7 @@ export const manageAddress = createAsyncThunk(
   "user/manageAddress",
   async (addr) => {
     try {
-      console.log("id", addr);
       const response = await updateAddress(addr);
-      console.log(response);
       return response.data;
     } catch (err) {
       console.error(err);
@@ -88,23 +86,18 @@ const userSlice = createSlice({
     [userLogin.rejected]: (state, action) => {
       state.loading = false;
       state.error = action.error.message;
-      console.log("error", action.payload);
     },
     [userAuthentication.pending]: (state) => {
       state.loading = true;
     },
     [userAuthentication.fulfilled]: (state, action) => {
-      console.log("user authentication", action.payload);
-      // state.isAuth = action.payload.isAuth;
       state.user = { ...action.payload.userData };
-      console.log("authentication", state.user);
       state.loading = false;
     },
     [manageAddress.pending]: (state) => {
       state.loading = true;
     },
     [manageAddress.fulfilled]: (state, action) => {
-      console.log(action);
       state.user.address = { ...action.payload };
       state.loading = false;
     },
