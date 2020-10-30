@@ -3,7 +3,7 @@ import { createSlice, createAsyncThunk } from "@reduxjs/toolkit";
 import {
   userRegister,
   userLogIn,
-  // userAuth,
+  userAuth,
   updateAddress,
 } from "../userService";
 
@@ -19,29 +19,31 @@ export const createUser = createAsyncThunk("user/createUser", async (user) => {
 export const userLogin = createAsyncThunk("user/userLogin", async (user) => {
   try {
     const response = await userLogIn(user);
+    localStorage.setItem("token", response.data.accessToken);
     return response.data;
   } catch (err) {
     console.error(err);
   }
 });
 
-// export const userAuthentication = createAsyncThunk(
-//   "user/userAuthentication",
-//   async (thunkAPI) => {
-//     try {
-//       const response = await userAuth();
-//       return response.data;
-//     } catch (err) {
-//       console.error(err);
-//     }
-//   }
-// );
+export const userAuthentication = createAsyncThunk(
+  "user/userAuthentication",
+  async (token, thunkAPI) => {
+    try {
+      const response = await userAuth(token);
+      return response.data;
+    } catch (err) {
+      console.error(err);
+    }
+  }
+);
 
 export const manageAddress = createAsyncThunk(
   "user/manageAddress",
-  async (addr, id) => {
+  async (addr) => {
     try {
-      const response = await updateAddress(addr, id);
+      console.log("id", addr);
+      const response = await updateAddress(addr);
       console.log(response);
       return response.data;
     } catch (err) {
@@ -55,14 +57,13 @@ const userSlice = createSlice({
   initialState: {
     user: {},
     loginSuccess: false,
-    isAuth: "",
     loading: false,
     error: "",
   },
   reducers: {
     userLogout(state, action) {
       state.loginSuccess = false;
-      console.log(state.loginSuccess);
+      state.user = {};
     },
   },
   extraReducers: {
@@ -87,12 +88,18 @@ const userSlice = createSlice({
     [userLogin.rejected]: (state, action) => {
       state.loading = false;
       state.error = action.error.message;
+      console.log("error", action.payload);
     },
-    // [userAuthentication.fulfilled]: (state, action) => {
-    //   console.log("user authentication", action.payload);
-    // state.isAuth = action.payload.isAuth;
-    // state.loading = false;
-    // },
+    [userAuthentication.pending]: (state) => {
+      state.loading = true;
+    },
+    [userAuthentication.fulfilled]: (state, action) => {
+      console.log("user authentication", action.payload);
+      // state.isAuth = action.payload.isAuth;
+      state.user = { ...action.payload.userData };
+      console.log("authentication", state.user);
+      state.loading = false;
+    },
     [manageAddress.pending]: (state) => {
       state.loading = true;
     },
