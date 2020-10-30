@@ -24,17 +24,21 @@ export const userLogIn = async (user) => {
   }
 };
 
-export const userAuth = async (user) => {
+export const userAuth = async (token) => {
   try {
-    return await axios.get(`${BASE_URL}auth`);
+    return await axios.get(`${BASE_URL}auth`, {
+      headers: {
+        rt_token: token,
+      },
+    });
   } catch (err) {
     console.error(err);
   }
 };
 
-export const updateAddress = async (addr, id) => {
+export const updateAddress = async (addr) => {
   try {
-    return await axios.put(`${BASE_URL}user/${id}`, addr, {
+    return await axios.put(`${BASE_URL}user/${addr.id}`, addr, {
       headers: {
         "Content-Type": "application/json",
       },
