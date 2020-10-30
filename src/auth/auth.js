@@ -1,38 +1,92 @@
-// import React, { Component } from "react";
-// import { connect } from "react-redux";
+import React, { Component } from "react";
+import { connect } from "react-redux";
+import { Redirect } from "react-router-dom";
+import { Flex, Skeleton } from "@chakra-ui/core";
+import { userAuthentication } from "./authSlice";
 
-// import LogIn from "./LogIn";
-// import { userAuthentication } from "./authSlice";
+export default function isAuth(ReceivedComponent) {
+  class AuthCheck extends Component {
+    constructor(props) {
+      super(props);
+      this.state = {
+        loading: false,
+      };
+    }
 
-// export default function isAuth(ReceivedComponent) {
-//   class AuthCheck extends Component {
-//     constructor(props) {
-//       super(props);
-//       this.state = {};
-//     }
+    getToken = () => {
+      return localStorage.getItem("token");
+    };
 
-//     componentDidMount() {
-//       this.props.userAuthentication();
-//     }
+    componentDidMount() {
+      const token = this.getToken();
+      if (token) {
+        this.props.userAuthentication(token).then((res) => {
+          if (!res.payload.isAuth) {
+            this.props.history.push("/login");
+          }
+          this.setState({
+            loading: true,
+          });
+        });
+      } else {
+        this.props.history.push("/login");
+      }
+    }
 
-//     render() {
-//       return <>{this.props.loginSuccess ? <ReceivedComponent /> : <LogIn />}</>;
-//     }
-//   }
+    render() {
+      const { loading } = this.state;
+      console.log(this.props);
+      return (
+        <>
+          {loading ? (
+            <ReceivedComponent props={this.props} />
+          ) : (
+            <Flex
+              px="8%"
+              py="3%"
+              backgroundColor="#efefef"
+              justifyContent="center"
+              w="100%"
+              flexDirection="column"
+            >
+              <Skeleton
+                height="20px"
+                my="10px"
+                colorStart="#f2f2f2"
+                colorEnd="#C8C8C8"
+              />
+              <Skeleton
+                height="20px"
+                my="10px"
+                colorStart="#f2f2f2"
+                colorEnd="#C8C8C8"
+              />
+              <Skeleton
+                height="20px"
+                my="10px"
+                colorStart="#f2f2f2"
+                colorEnd="#C8C8C8"
+              />
+            </Flex>
+          )}
+        </>
+      );
+    }
+  }
 
-//   const mapStateToProps = (state) => {
-//     // console.log("auth file", state);
-//     return {
-//       user: { ...state.user.user },
-//       loginSuccess: state.user.loginSuccess,
-//     };
-//   };
+  const mapStateToProps = (state) => {
+    return {
+      //   loading: state.user.loading,
+      isAuth: state.user.isAuth,
+      loginSuccess: state.user.loginSuccess,
+    };
+  };
 
-//   const mapDispatchToProps = (dispatch) => {
-//     return {
-//       userAuthentication: () => dispatch(userAuthentication()),
-//     };
-//   };
+  const mapDispatchToProps = (dispatch) => {
+    return {
+      userAuthentication: (token) => dispatch(userAuthentication(token)),
+    };
+  };
 
-//   return connect(mapStateToProps, mapDispatchToProps)(AuthCheck);
-// }
+  return connect(null, mapDispatchToProps)(AuthCheck);
+}
