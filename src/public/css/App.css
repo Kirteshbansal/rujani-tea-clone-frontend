@@ -1,0 +1,281 @@
+@import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Nunito+Sans:wght@300;400;600;700&display=swap");
+
+html {
+    scroll-behavior: smooth;
+}
+
+:root {
+    --nero-black: #1c1b1b;
+    --dim-gray: #6a6a6a;
+    --green: #20582b;
+    --carbon-black: #1c1b1b;
+    --white-80: #ffffff80;
+    --green: #20582b;
+    --golden-yellow: #e8b05b;
+    --light-gray: #efefef;
+}
+
+body {
+    margin: 0;
+    font-family: "Nunito Sans", sans-serif !important;
+    font-size: 16px;
+    background-color: var(--light-gray) !important;
+}
+
+.strong-text {
+    font-weight: bold;
+}
+
+.font-montserrat {
+    font-family: "Montserrat", sans-serif;
+}
+
+.primary-btn {
+    color: var(--nero-black);
+    margin-top: 23px;
+    padding: 11px 10px;
+    background-color: white;
+    text-align: center;
+    font-size: 13.5px;
+    letter-spacing: 1.5px;
+    border: 1.5px solid transparent;
+    box-shadow: 0 0 1.5px #fff;
+    font-weight: 500;
+    transition: all 0.3s ease;
+}
+
+.primary-btn:hover {
+    background-color: transparent;
+    border: 1.5px solid white;
+    color: white;
+    font-weight: 500;
+}
+
+.button-mw {
+    width: 11em;
+}
+
+.button-lw {
+    width: 15em;
+}
+
+.checkout-button {
+    color: white;
+    margin-top: 13px;
+    padding: 11px 10px;
+    background-color: var(--nero-black);
+    text-align: center;
+    font-size: 13.5px;
+    letter-spacing: 1.5px;
+    border: 1.5px solid transparent;
+    box-shadow: 0 0 1.5px #fff;
+    font-weight: 500;
+    transition: all 0.3s ease;
+}
+
+.checkout-button:hover {
+    background-color: transparent;
+    color: var(--nero-black);
+    border: 1.5px solid var(--nero-black);
+}
+
+.slick-slider.hero-slider .slick-dots {
+    bottom: 0;
+    width: auto;
+    left: calc(5% - 11px);
+}
+
+.slick-slider.hero-slider .slick-dots li button:before {
+    color: #fff;
+    font-size: 10px;
+    opacity: 0.4;
+}
+
+.slick-slider.hero-slider .slick-dots li.slick-active button:before {
+    opacity: 1;
+}
+
+.slick-slider.hero-slider ul.slick-dots {
+    height: 40px;
+}
+
+.hamburger-menu__link {
+    display: inline-block;
+    width: 100%;
+    padding-top: 20px;
+    padding-bottom: 20px;
+}
+
+.hamburger-menu__accordion-link {
+    display: inline-block;
+    width: 100%;
+    margin-bottom: 15px;
+    font-weight: 300;
+}
+
+:focus {
+    box-shadow: none !important;
+}
+
+.mb-0 {
+    margin-bottom: 0;
+}
+
+.hamburger-drawer-body::-webkit-scrollbar {
+    width: 0.3em;
+}
+
+.hamburger-drawer-body::-webkit-scrollbar-track {
+    box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.3);
+}
+
+.hamburger-drawer-body::-webkit-scrollbar-thumb {
+    background-color: #ffffffaa;
+    border-radius: 0.2em;
+    -webkit-border-radius: 0.2em;
+    -moz-border-radius: 0.2em;
+    -ms-border-radius: 0.2em;
+    -o-border-radius: 0.2em;
+}
+
+.best-sellers-sec {
+    scroll-behavior: smooth;
+    scroll-margin-top: 4em !important;
+}
+
+.slick-slider.reviews-slider .slick-dots {
+    bottom: 18px;
+}
+
+.slick-slider.reviews-slider .slick-dots li button:before {
+    color: var(--golden-yellow);
+    font-size: 10px;
+    opacity: 0.4;
+}
+
+.slick-slider.reviews-slider .slick-dots li.slick-active button:before {
+    opacity: 1;
+}
+
+/* Above 30em/480px screen size */
+@media (min-width: 30em) {
+    .slick-slider.hero-slider ul.slick-dots {
+        height: 48px;
+    }
+
+    .slick-slider.reviews-slider .slick-dots {
+        bottom: 24px;
+    }
+}
+
+/* Above 48em/768px screen size */
+@media (min-width: 48em) {
+    .slick-slider.hero-slider ul.slick-dots {
+        height: 50px;
+    }
+
+    .best-sellers-sec {
+        scroll-margin-top: 8.5em !important;
+    }
+
+    .slick-slider.reviews-slider .slick-dots {
+        bottom: 60px;
+    }
+}
+
+/* Above 62em/992px screen size */
+@media (min-width: 62em) {
+    .slick-slider.hero-slider .slick-dots {
+        padding-right: 12px;
+        width: 100%;
+        left: 0;
+        text-align: right;
+    }
+
+    .next-sec-btn:hover {
+        transform: scale(1.08, 1.08);
+        -webkit-transform: scale(1.08, 1.08);
+        -moz-transform: scale(1.08, 1.08);
+        -ms-transform: scale(1.08, 1.08);
+        -o-transform: scale(1.08, 1.08);
+    }
+
+    .next-sec-btn:hover .next-sec-btn__icon {
+        animation-name: next-icon;
+        animation-duration: 0.8s;
+        animation-iteration-count: 1;
+    }
+
+    @keyframes next-icon {
+        0% {
+            transform: translateY(0);
+            -webkit-transform: translateY(0);
+            -moz-transform: translateY(0);
+            -ms-transform: translateY(0);
+            -o-transform: translateY(0);
+        }
+        40% {
+            transform: translateY(0.5em);
+            -webkit-transform: translateY(0.5em);
+            -moz-transform: translateY(0.5em);
+            -ms-transform: translateY(0.5em);
+            -o-transform: translateY(0.5em);
+        }
+
+        41% {
+            opacity: 0;
+        }
+
+        45% {
+            transform: translateY(-0.5em);
+            -webkit-transform: translateY(-0.5em);
+            -moz-transform: translateY(-0.5em);
+            -ms-transform: translateY(-0.5em);
+            -o-transform: translateY(-0.5em);
+        }
+
+        58% {
+            opacity: 0.4;
+        }
+
+        75% {
+            opacity: 0.85;
+        }
+
+        90% {
+            opacity: 1;
+        }
+
+        100% {
+            transform: translateY(0em);
+            -webkit-transform: translateY(0em);
+            -moz-transform: translateY(0em);
+            -ms-transform: translateY(0em);
+            -o-transform: translateY(0em);
+        }
+    }
+
+    .collection-card {
+        transition: background-size 6s ease-in;
+        -webkit-transition: background-size 6s ease-in;
+        -moz-transition: background-size 6s ease-in;
+        -ms-transition: background-size 6s ease-in;
+        -o-transition: background-size 6s ease-in;
+    }
+
+    .collection-card:hover {
+        background-size: 243%;
+    }
+
+    .best-sellers-sec {
+        scroll-margin-top: 8em !important;
+    }
+}
+
+/* Above 80em/1280px screen size */
+@media (min-width: 80em) {
+    .best-sellers-sec {
+        scroll-margin-top: 5em !important;
+    }
+}
