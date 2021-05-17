@@ -14,6 +14,7 @@ html {
     --green: #20582b;
     --golden-yellow: #e8b05b;
     --light-gray: #efefef;
+    --white: #ffffff;
 }
 
 body {
@@ -50,6 +51,10 @@ body {
     border: 1.5px solid white;
     color: white;
     font-weight: 500;
+}
+
+.text-white {
+    color: var(--white);
 }
 
 .button-mw {
@@ -176,7 +181,7 @@ body {
     }
 
     .best-sellers-sec {
-        scroll-margin-top: 8.5em !important;
+        scroll-margin-top: 6.75em !important;
     }
 
     .slick-slider.reviews-slider .slick-dots {
@@ -193,17 +198,9 @@ body {
         text-align: right;
     }
 
-    .next-sec-btn:hover {
-        transform: scale(1.08, 1.08);
-        -webkit-transform: scale(1.08, 1.08);
-        -moz-transform: scale(1.08, 1.08);
-        -ms-transform: scale(1.08, 1.08);
-        -o-transform: scale(1.08, 1.08);
-    }
-
     .next-sec-btn:hover .next-sec-btn__icon {
         animation-name: next-icon;
-        animation-duration: 0.8s;
+        animation-duration: 0.5s;
         animation-iteration-count: 1;
     }
 
@@ -235,7 +232,11 @@ body {
             -o-transform: translateY(-0.5em);
         }
 
-        58% {
+        50% {
+            opacity: 0.25;
+        }
+
+        55% {
             opacity: 0.4;
         }
 
@@ -257,11 +258,11 @@ body {
     }
 
     .collection-card {
-        transition: background-size 6s ease-in;
-        -webkit-transition: background-size 6s ease-in;
-        -moz-transition: background-size 6s ease-in;
-        -ms-transition: background-size 6s ease-in;
-        -o-transition: background-size 6s ease-in;
+        transition: background-size 4s ease-in;
+        -webkit-transition: background-size 4s ease-in;
+        -moz-transition: background-size 4s ease-in;
+        -ms-transition: background-size 4s ease-in;
+        -o-transition: background-size 4s ease-in;
     }
 
     .collection-card:hover {
@@ -277,5 +278,24 @@ body {
 @media (min-width: 80em) {
     .best-sellers-sec {
         scroll-margin-top: 5em !important;
+    }
+
+    /* .collection-card {
+        transition: background-size 4s ease-in;
+        -webkit-transition: background-size 4s ease-in;
+        -moz-transition: background-size 4s ease-in;
+        -ms-transition: background-size 4s ease-in;
+        -o-transition: background-size 4s ease-in;
+    } */
+}
+
+/* Above 96em/1536px screen size */
+@media (min-width: 96em) {
+    .collection-card {
+        transition: background-size 6s ease-in;
+        -webkit-transition: background-size 6s ease-in;
+        -moz-transition: background-size 6s ease-in;
+        -ms-transition: background-size 6s ease-in;
+        -o-transition: background-size 6s ease-in;
     }
 }
