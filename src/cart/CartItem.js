@@ -1,11 +1,11 @@
-import React from "react";
+import React, { useState } from "react";
 import {
     Button,
     Text,
     Icon,
     Flex,
     Box,
-    Image,
+    Img,
     Stack,
     NumberInput,
     NumberInputField,
@@ -14,18 +14,25 @@ import {
     NumberDecrementStepper,
 } from "@chakra-ui/react";
 
+import { loadingImage } from "../components/Common/Common";
+
 const CartItem = (props) => {
+    const [loadingImg, setLoadingImg] = useState(true);
     const { product, removeProductHandler, productQuantityHandler } = props;
     return (
         <>
             <Flex alignItems="center" mb={5} key={product.id}>
                 <Box w="38%" mr={4} boxShadow="md">
-                    <Image src={product.image} />
+                    <Img
+                        src={loadingImg ? loadingImage : product.image}
+                        fallback={loadingImage}
+                        onLoad={() => setLoadingImg(false)}
+                    />
                 </Box>
                 <Stack w="60%">
                     <Text
                         className="font-montserrat"
-                        fontSize={15}
+                        fontSize={{ base: "0.8125em", sm: "0.9375em" }}
                         fontWeight="500"
                         letterSpacing={2}
                         textTransform="uppercase"

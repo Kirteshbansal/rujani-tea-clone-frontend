@@ -167,6 +167,19 @@ body {
     background: #48bb78 !important;
 }
 
+.cart-items-container::-webkit-scrollbar {
+    width: 0.35em;
+}
+
+.cart-items-container::-webkit-scrollbar-thumb {
+    background-color: #4b4b4b;
+    border-radius: 0.2em;
+    -webkit-border-radius: 0.2em;
+    -moz-border-radius: 0.2em;
+    -ms-border-radius: 0.2em;
+    -o-border-radius: 0.2em;
+}
+
 /* Above 30em/480px screen size */
 @media (min-width: 30em) {
     .slick-slider.hero-slider ul.slick-dots {
