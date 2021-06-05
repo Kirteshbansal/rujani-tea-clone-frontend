@@ -163,6 +163,10 @@ body {
     opacity: 1;
 }
 
+.custom-toast .Toastify__toast.Toastify__toast--success {
+    background: #48bb78 !important;
+}
+
 /* Above 30em/480px screen size */
 @media (min-width: 30em) {
     .slick-slider.hero-slider ul.slick-dots {
@@ -279,14 +283,6 @@ body {
     .best-sellers-sec {
         scroll-margin-top: 5em !important;
     }
-
-    /* .collection-card {
-        transition: background-size 4s ease-in;
-        -webkit-transition: background-size 4s ease-in;
-        -moz-transition: background-size 4s ease-in;
-        -ms-transition: background-size 4s ease-in;
-        -o-transition: background-size 4s ease-in;
-    } */
 }
 
 /* Above 96em/1536px screen size */
