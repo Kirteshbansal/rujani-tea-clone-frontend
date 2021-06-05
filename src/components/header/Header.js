@@ -1,23 +1,5 @@
 import React, { Component } from "react";
-import {
-    Flex,
-    Image,
-    List,
-    ListItem,
-    Icon,
-    Menu,
-    MenuButton,
-    MenuList,
-    MenuItem,
-    MenuGroup,
-    Button,
-    Text,
-    Stack,
-    Badge,
-    Box,
-    Heading,
-    IconButton,
-} from "@chakra-ui/react";
+import { Flex, Image, List, ListItem, Icon, Button, Stack, Box, IconButton } from "@chakra-ui/react";
 import { Link } from "react-router-dom";
 import { BsBag } from "react-icons/bs";
 import { AiOutlineUser } from "react-icons/ai";

@@ -34,9 +34,10 @@ const CartDrawer = (props) => {
     const totalCost = cartProducts.reduce((acc, crr) => {
         return (acc += crr.selectedQuantity * crr.price);
     }, 0);
-    const cartItems = cartProducts.map((product) => {
+    const cartItems = cartProducts.map((product, index) => {
         return (
             <CartItem
+                key={index + 1}
                 product={product}
                 removeProductHandler={handleRemoveProduct}
                 productQuantityHandler={handleProductQuantity}
