@@ -6,7 +6,7 @@ import routes from "../../routes/routes";
 import { loadingImage } from "../Common/Common";
 
 const MegaMenu = (props) => {
-    const { showMenu, showMenuHandler } = props;
+    const { showMenu, hideMenuHandler } = props;
 
     return (
         <>
@@ -20,7 +20,7 @@ const MegaMenu = (props) => {
                     visibility={showMenu ? "visible" : "hidden"}
                     bg="white"
                     justifyContent="center"
-                    onMouseLeave={showMenuHandler}
+                    onMouseLeave={hideMenuHandler}
                     border="1px solid #efefef90"
                     transition="visibility 50ms ease"
                     py={{ lg: "3em" }}

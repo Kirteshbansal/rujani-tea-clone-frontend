@@ -74,7 +74,12 @@ class HamburgerMenu extends Component {
                         <DrawerBody color="white" className="hamburger-drawer-body">
                             <Fade in={true}>
                                 <List className="hamburger-menu" color="white">
-                                    <ListItem borderBottom="1.75px solid #FFFFFF25" fontSize="xs" letterSpacing="2px">
+                                    <ListItem
+                                        borderBottom="1.75px solid #FFFFFF25"
+                                        fontSize="xs"
+                                        letterSpacing="2px"
+                                        onClick={() => onClose(drawerName)}
+                                    >
                                         <Link to={routes.home} className="hamburger-menu__link">
                                             HOME
                                         </Link>
@@ -145,6 +150,7 @@ class HamburgerMenu extends Component {
                                                                                     letterSpacing="1px"
                                                                                     color="var(--white-80)"
                                                                                     _hover={{ color: "white" }}
+                                                                                    onClick={() => onClose(drawerName)}
                                                                                 >
                                                                                     <Link
                                                                                         to={routes.category.replace(
@@ -161,6 +167,7 @@ class HamburgerMenu extends Component {
                                                                                     letterSpacing="1px"
                                                                                     color="var(--white-80)"
                                                                                     _hover={{ color: "white" }}
+                                                                                    onClick={() => onClose(drawerName)}
                                                                                 >
                                                                                     <Link
                                                                                         to={routes.category.replace(
@@ -177,6 +184,7 @@ class HamburgerMenu extends Component {
                                                                                     letterSpacing="1px"
                                                                                     color="var(--white-80)"
                                                                                     _hover={{ color: "white" }}
+                                                                                    onClick={() => onClose(drawerName)}
                                                                                 >
                                                                                     <Link
                                                                                         to={routes.products}
@@ -262,6 +270,7 @@ class HamburgerMenu extends Component {
                                                                                     letterSpacing="1px"
                                                                                     color="var(--white-80)"
                                                                                     _hover={{ color: "white" }}
+                                                                                    onClick={() => onClose(drawerName)}
                                                                                 >
                                                                                     <Link
                                                                                         to={routes.product.replace(
@@ -318,6 +327,7 @@ class HamburgerMenu extends Component {
                                                                                     letterSpacing="1px"
                                                                                     color="var(--white-80)"
                                                                                     _hover={{ color: "white" }}
+                                                                                    onClick={() => onClose(drawerName)}
                                                                                 >
                                                                                     <Link
                                                                                         to={routes.category.replace(
@@ -334,6 +344,7 @@ class HamburgerMenu extends Component {
                                                                                     letterSpacing="1px"
                                                                                     color="var(--white-80)"
                                                                                     _hover={{ color: "white" }}
+                                                                                    onClick={() => onClose(drawerName)}
                                                                                 >
                                                                                     <Link
                                                                                         to={routes.category.replace(
@@ -350,6 +361,7 @@ class HamburgerMenu extends Component {
                                                                                     letterSpacing="1px"
                                                                                     color="var(--white-80)"
                                                                                     _hover={{ color: "white" }}
+                                                                                    onClick={() => onClose(drawerName)}
                                                                                 >
                                                                                     <Link
                                                                                         to={routes.category.replace(

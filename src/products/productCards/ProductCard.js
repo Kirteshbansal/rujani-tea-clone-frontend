@@ -24,7 +24,7 @@ const ProductCard = (props) => {
     };
     return (
         <>
-            <Box mb={{ base: "15px" }} w={w}>
+            <Box mb={{ base: "2em" }} w={w} mx={props.mx ? props.mx : "0"}>
                 <Fade in={true}>
                     <Link to={`/product/${product_id}`}>
                         <Flex flexDir="column" textAlign="center" justifyContent="space-between">
@@ -49,7 +49,7 @@ const ProductCard = (props) => {
                             >
                                 {name}
                             </Text>
-                            <Text fontSize={{ base: "12px" }} color="var(--dim-gray)" letterSpacing={2} pb={5}>
+                            <Text fontSize={{ base: "12px" }} color="var(--dim-gray)" letterSpacing={2}>
                                 RS. {price}
                             </Text>
                         </Flex>

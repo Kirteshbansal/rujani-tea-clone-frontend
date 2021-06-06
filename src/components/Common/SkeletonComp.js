@@ -10,7 +10,7 @@ const SkeletonComp = (props) => {
             height={["15px", null, "18px"]}
             w={variableWidth.length > 0 ? variableWidth[index] : "100%"}
             mt={mt}
-            mb={mb}
+            mb={mb ? mb : "0.75em"}
             startColor="#f2f2f2"
             endColor="#C8C8C8"
             borderRadius={borderRadius}

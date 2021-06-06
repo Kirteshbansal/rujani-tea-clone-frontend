@@ -4,9 +4,9 @@ import { Fade, Img, Flex, Box, SkeletonText } from "@chakra-ui/react";
 import SkeletonComp from "../../components/Common/SkeletonComp";
 import { loadingImage } from "../../components/Common/Common";
 
-const LoadingProductCard = ({ showSkeleton = true, w = { base: "45%", md: "30%", lg: "23%", xl: "21%" } }) => {
+const LoadingProductCard = ({ showSkeleton = true, w = { base: "45%", md: "30%", lg: "23%", xl: "21%" }, mx = 0 }) => {
     return (
-        <Box mb={{ base: "15px" }} w={w}>
+        <Box mb={{ base: "2em" }} w={w} mx={mx}>
             <Flex flexDir="column" textAlign="center" boxShadow="0.5px 1px 2px #00000010">
                 <Fade in={true}>
                     <Img src={loadingImage} w="100%" mb={"0.4125em"} />

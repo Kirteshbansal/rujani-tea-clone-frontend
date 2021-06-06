@@ -41,7 +41,6 @@ class ErrorBoundary extends Component {
                     >
                         Please try again in sometime...
                     </Heading>
-                    ;
                 </Flex>
             );
         }

@@ -64,13 +64,13 @@ const CartDrawer = (props) => {
                         py={2}
                         borderY="1px solid #ccc"
                         color="var(--dim-gray)"
-                        fontSize={14}
+                        fontSize={{ base: "0.75em" }}
                         letterSpacing={2}
-                        fontWeight="300"
+                        fontWeight="500"
                         mb={3}
                     >
                         Get free shipping!...
-                        <Icon as={RiTruckLine} size={6} />
+                        <Icon as={RiTruckLine} size="2.5em" fontSize={{ base: "1.4em" }} />
                     </Text>
                     <DrawerBody overflowY="auto" className="cart-items-container">
                         {cartProducts.length > 0 ? cartItems : "Your cart is empty."}

@@ -125,6 +125,7 @@ class Header extends Component {
                                 <MegaMenu
                                     showMenu={this.state.displayMenu}
                                     showMenuHandler={this.displayMegaMenuHandler}
+                                    hideMenuHandler={this.hideMegaMenuHandler}
                                 />
                             </ListItem>
                             <ListItem mx="2%">
