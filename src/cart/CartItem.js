@@ -2,7 +2,6 @@ import React, { useState } from "react";
 import {
     Button,
     Text,
-    Icon,
     Flex,
     Box,
     Img,
@@ -14,7 +13,7 @@ import {
     NumberDecrementStepper,
 } from "@chakra-ui/react";
 
-import { loadingImage } from "../components/Common/Common";
+import { loadingImage } from "../public/dist/imageURLs";
 
 const CartItem = (props) => {
     const [loadingImg, setLoadingImg] = useState(true);

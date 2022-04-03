@@ -11,8 +11,10 @@ import Layout from "../components/Layout/Layout";
 
 const Products = (props) => {
     useEffect(() => {
-        props.fetchProducts();
-    }, []);
+        if (Object.keys(props.products).length === 0) {
+            props.fetchProducts();
+        }
+    }, [props]);
 
     const selectSortOption = (e) => {
         const selectedOption = e.target.value;

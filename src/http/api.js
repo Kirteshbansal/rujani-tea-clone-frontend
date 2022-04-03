@@ -2,12 +2,14 @@ import axios from "axios";
 
 import config from "../config/config";
 
-const { development, dev_domain, pro_domain } = config;
+const { dev_domain, pro_domain } = config;
 
-const BASE_URL = development ? dev_domain : pro_domain;
-
-const api = axios.create({
+const currEnv = process.env.NODE_ENV;
+const BASE_URL = currEnv === "development" ? dev_domain : pro_domain;
+const axiosInstance = axios.create({
     baseURL: BASE_URL,
+    timeout: 10000,
+    "Content-Type": "application/json",
 });
 
-export default api;
+export default axiosInstance;

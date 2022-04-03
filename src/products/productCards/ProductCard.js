@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { Link } from "react-router-dom";
 import { Box, Fade, Img, Text, Flex } from "@chakra-ui/react";
-import { loadingImage } from "../../components/Common/Common";
+import { loadingImage } from "../../public/dist/imageURLs";
 
 const ProductCard = (props) => {
     const [showOnHover, setShowOnHover] = useState(false);
@@ -60,4 +60,4 @@ const ProductCard = (props) => {
     );
 };
 
-export default React.memo(ProductCard);
+export default ProductCard;

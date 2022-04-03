@@ -1,12 +1,8 @@
-import api from "./http/api";
+import axiosInstance from "./http/api";
 
 export const userRegister = async (user) => {
     try {
-        return await api.post(`user/register`, user, {
-            headers: {
-                "Content-Type": "application/json",
-            },
-        });
+        return await axiosInstance.post(`user/register`, user);
     } catch (err) {
         console.error(err);
     }
@@ -14,9 +10,13 @@ export const userRegister = async (user) => {
 
 export const userLogIn = async (user) => {
     try {
-        return await api.post(`user/login`, user, {
+        const res = await axiosInstance.post(`user/login`, user, {
             withCredentials: false,
         });
+        console.error(res);
+        if (res) {
+            return res;
+        }
     } catch (err) {
         console.error(err);
     }
@@ -24,7 +24,7 @@ export const userLogIn = async (user) => {
 
 export const userAuth = async (token) => {
     try {
-        return await api.get(`auth`, {
+        return await axiosInstance.get(`auth`, {
             headers: {
                 rt_token: token,
             },
@@ -36,7 +36,7 @@ export const userAuth = async (token) => {
 
 export const updateAddress = async (addr) => {
     try {
-        return await api.put(`user/${addr.id}`, addr, {
+        return await axiosInstance.put(`user/${addr.id}`, addr, {
             headers: {
                 "Content-Type": "application/json",
             },

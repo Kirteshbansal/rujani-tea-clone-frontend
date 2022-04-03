@@ -1,14 +1,9 @@
-import React, { Component } from "react";
-import {
-  BrowserRouter as Router,
-  Switch,
-  Route,
-  Redirect,
-} from "react-router-dom";
+import React from "react";
+import { useSelector } from "react-redux";
+import { BrowserRouter as Router, Switch, Route, Redirect } from "react-router-dom";
+import "react-toastify/dist/ReactToastify.css";
 
-import "./App.css";
-import Header from "./components/Header";
-import Footer from "./components/Footer";
+import "./public/css/App.css";
 import Home from "./home/Home";
 import Products from "./products/Products";
 import CollectionProducts from "./collection/CollectionProducts";
@@ -16,72 +11,55 @@ import Product from "./product/Product";
 import Checkout from "./checkout/Checkout";
 import LogIn from "./auth/LogIn";
 import SignUp from "./auth/SignUp";
-import isAuth from "./auth/auth";
+// import isAuth from "./auth/auth";
 import UserProfile from "./userProfile/UserProfile";
-// import { connect } from "react-redux";
+import config from "./config/config";
+import routes from "./routes/routes";
+import ScrollToTop from "./components/ScrollToTop";
+import CommonToastContainer from "./components/Common/CommonToastContainer";
 
-class App extends Component {
-  constructor(props) {
-    super(props);
-    this.state = {};
-  }
-  render() {
-    // const { loginSuccess } = this.props;
+const App = (props) => {
+    let { isLoggedIn } = useSelector((state) => ({ isLoggedIn: state.user.loginSuccess }));
+
     return (
-      <>
-        <Router>
-          <Header />
-          <Switch>
-            <Route path="/" exact component={Home} />
-            <Route
-              path="/products"
-              render={(props) => <Products {...props} />}
-            />
-            <Route
-              path="/collection/:id"
-              render={(props) => <CollectionProducts {...props} />}
-            />
-            <Route
-              path="/product/:id"
-              render={(props) => <Product {...props} />}
-            />
-            <Route path="/login" render={(props) => <LogIn {...props} />} />
-            {/* <Route
-              path="/profile"
-              render={
-                (props) => (
-                  {
-                  return loginSuccess === true ? (
-                  <UserProfile {...props} />
-                )
-                  ) : (
-                    <Redirect to="/login" />
-                  );
-                }
-              }
-            /> */}
-            {/* <Route path="/checkout">
-              {loginSuccess ? <Checkout /> : <Redirect to="/login" />}
-            </Route> */}
-            <Route
-              path="/account/register"
-              render={(props) => <SignUp {...props} />}
-            />
-            <Route path="/checkout" exact component={isAuth(Checkout)} />;
-            <Route path="/profile" component={isAuth(UserProfile)} />;
-          </Switch>
-          <Footer />
-        </Router>
-      </>
+        <>
+            <Router>
+                <ScrollToTop />
+                <CommonToastContainer />
+                <Switch>
+                    <Route
+                        path={routes.home}
+                        exact={true}
+                        render={(props) => <Home {...props} announcementText={config?.announcement} />}
+                    />
+                    <Route path={routes.products} exact={true} render={(props) => <Products {...props} />} />
+                    <Route path={routes.category} exact={true} render={(props) => <CollectionProducts {...props} />} />
+                    <Route path={routes.product} exact={true} render={(props) => <Product {...props} />} />
+                    <Route
+                        path={routes.login}
+                        exact={true}
+                        exact={true}
+                        render={(props) =>
+                            isLoggedIn ? (
+                                <Redirect to={{ pathname: routes.home, state: { from: props.location } }} />
+                            ) : (
+                                <LogIn {...props} />
+                            )
+                        }
+                    />
+                    <Route
+                        path={routes.signup}
+                        exact={true}
+                        render={(props) => (isLoggedIn ? <Redirect to={routes.home} /> : <SignUp {...props} />)}
+                    />
+                    <Route path={routes.checkout} exact={true} render={(props) => <Checkout {...props} />} />
+                    <Route path={routes.profile} exact={true} render={(props) => <UserProfile {...props} />} />
+                    {/* <Route path={routes.checkout} exact={true} component={isAuth(Checkout)} />;
+                    <Route path={routes.profile} exact={true} component={isAuth(UserProfile)} />; */}
+                </Switch>
+            </Router>
+        </>
     );
-  }
-}
-
-// const mapStateToProps = (state) => {
-//   return {
-//     loginSuccess: state.user.loginSuccess,
-//   };
-// };
+};
 
 export default App;
-// export default connect(mapStateToProps)(App);

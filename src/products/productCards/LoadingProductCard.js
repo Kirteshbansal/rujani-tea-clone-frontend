@@ -2,7 +2,7 @@ import React from "react";
 import { Fade, Img, Flex, Box, SkeletonText } from "@chakra-ui/react";
 
 import SkeletonComp from "../../components/Common/SkeletonComp";
-import { loadingImage } from "../../components/Common/Common";
+import { loadingImage } from "../../public/dist/imageURLs";
 
 const LoadingProductCard = ({ showSkeleton = true, w = { base: "45%", md: "30%", lg: "23%", xl: "21%" }, mx = 0 }) => {
     return (

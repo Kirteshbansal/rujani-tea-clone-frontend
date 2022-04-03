@@ -1,4 +1,4 @@
-import React, { Component } from "react";
+import React, { PureComponent } from "react";
 import { Flex, Image, List, ListItem, Icon, Button, Stack, Box, IconButton } from "@chakra-ui/react";
 import { Link } from "react-router-dom";
 import { BsBag } from "react-icons/bs";
@@ -14,7 +14,7 @@ import routes from "../../routes/routes";
 import logo from "../../public/dist/rujani-logo.png";
 import MegaMenu from "./MegaMenu";
 
-class Header extends Component {
+class Header extends PureComponent {
     constructor(props) {
         super(props);
         this.state = {

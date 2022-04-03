@@ -3,7 +3,7 @@ import { Flex, Img, List, ListItem, Text, Box, Heading, Fade } from "@chakra-ui/
 import { Link } from "react-router-dom";
 
 import routes from "../../routes/routes";
-import { loadingImage } from "../Common/Common";
+import { loadingImage } from "../../public/dist/imageURLs";
 
 const MegaMenu = (props) => {
     const { showMenu, hideMenuHandler } = props;

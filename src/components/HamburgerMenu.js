@@ -15,18 +15,7 @@ import {
     AccordionButton,
     AccordionPanel,
     AccordionIcon,
-    Button,
-    Text,
-    Icon,
-    Flex,
     Box,
-    Image,
-    Stack,
-    NumberInput,
-    NumberInputField,
-    NumberInputStepper,
-    NumberIncrementStepper,
-    NumberDecrementStepper,
 } from "@chakra-ui/react";
 import { connect } from "react-redux";
 import { Link } from "react-router-dom";
@@ -238,6 +227,7 @@ class HamburgerMenu extends Component {
                                                                                     letterSpacing="1px"
                                                                                     color="var(--white-80)"
                                                                                     _hover={{ color: "white" }}
+                                                                                    onClick={() => onClose(drawerName)}
                                                                                 >
                                                                                     <Link
                                                                                         to={routes.product.replace(
@@ -254,6 +244,7 @@ class HamburgerMenu extends Component {
                                                                                     letterSpacing="1px"
                                                                                     color="var(--white-80)"
                                                                                     _hover={{ color: "white" }}
+                                                                                    onClick={() => onClose(drawerName)}
                                                                                 >
                                                                                     <Link
                                                                                         to={routes.product.replace(
@@ -418,6 +409,7 @@ class HamburgerMenu extends Component {
                                                                                     letterSpacing="1px"
                                                                                     color="var(--white-80)"
                                                                                     _hover={{ color: "white" }}
+                                                                                    onClick={() => onClose(drawerName)}
                                                                                 >
                                                                                     <Link
                                                                                         to={routes.contact}
@@ -437,22 +429,42 @@ class HamburgerMenu extends Component {
                                             </AccordionItem>
                                         </Accordion>
                                     </ListItem>
-                                    <ListItem borderBottom="1.75px solid #FFFFFF25" fontSize="xs" letterSpacing="2px">
+                                    <ListItem
+                                        borderBottom="1.75px solid #FFFFFF25"
+                                        fontSize="xs"
+                                        letterSpacing="2px"
+                                        onClick={() => onClose(drawerName)}
+                                    >
                                         <Link to={routes.about} className="hamburger-menu__link">
                                             ABOUT
                                         </Link>
                                     </ListItem>
-                                    <ListItem borderBottom="1.75px solid #FFFFFF25" fontSize="xs" letterSpacing="2px">
+                                    <ListItem
+                                        borderBottom="1.75px solid #FFFFFF25"
+                                        fontSize="xs"
+                                        letterSpacing="2px"
+                                        onClick={() => onClose(drawerName)}
+                                    >
                                         <Link to={routes.teagram} className="hamburger-menu__link">
                                             THE TEAGRAM
                                         </Link>
                                     </ListItem>
-                                    <ListItem borderBottom="1.75px solid #FFFFFF25" fontSize="xs" letterSpacing="2px">
+                                    <ListItem
+                                        borderBottom="1.75px solid #FFFFFF25"
+                                        fontSize="xs"
+                                        letterSpacing="2px"
+                                        onClick={() => onClose(drawerName)}
+                                    >
                                         <Link to={routes.faq} className="hamburger-menu__link">
                                             FAQ
                                         </Link>
                                     </ListItem>
-                                    <ListItem borderBottom="1.75px solid #FFFFFF25" fontSize="xs" letterSpacing="2px">
+                                    <ListItem
+                                        borderBottom="1.75px solid #FFFFFF25"
+                                        fontSize="xs"
+                                        letterSpacing="2px"
+                                        onClick={() => onClose(drawerName)}
+                                    >
                                         <Link to={routes.contact} className="hamburger-menu__link">
                                             CONTACT US
                                         </Link>
@@ -464,6 +476,7 @@ class HamburgerMenu extends Component {
                                     mb={35}
                                     color="var(--white-80)"
                                     _hover={{ color: "white" }}
+                                    onClick={() => onClose(drawerName)}
                                 >
                                     <Link to={routes.profile} className="hamburger-menu__link">
                                         Account
@@ -471,22 +484,6 @@ class HamburgerMenu extends Component {
                                 </Box>
                             </Fade>
                         </DrawerBody>
-                        {/* {cartProducts.length <= 0 ? null : (
-                            <DrawerFooter
-                                px={8}
-                                py={6}
-                                borderTop="1px solid #ccc"
-                                display="flex"
-                                flexDirection="column"
-                            >
-                                <Text mb={4} fontSize={14} color="var(--dim-gray)" fontWeight="200">
-                                    Inclusive of all shipping & taxes.
-                                </Text>
-                                <Link to="/checkout" className="checkout-button">
-                                    CHECKOUT - RS. {totalCost}
-                                </Link>
-                            </DrawerFooter>
-                        )} */}
                     </DrawerContent>
                 </Drawer>
             </>

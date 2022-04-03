@@ -1,8 +1,8 @@
-import api from "./http/api";
+import axiosInstance from "./http/api";
 
 export const getAllProducts = async () => {
     try {
-        return await api.get(`products`);
+        return await axiosInstance.get(`products`);
     } catch (err) {
         console.error(err);
     }
@@ -10,7 +10,7 @@ export const getAllProducts = async () => {
 
 export const getProductsByCollection = async (id) => {
     try {
-        return await api.get(`category/${id}`);
+        return await axiosInstance.get(`category/${id}`);
     } catch (err) {
         console.error(err);
     }
@@ -18,7 +18,15 @@ export const getProductsByCollection = async (id) => {
 
 export const getProduct = async (id) => {
     try {
-        return await api.get(`product/${id}`);
+        return await axiosInstance.get(`product/${id}`);
+    } catch (err) {
+        console.error(err);
+    }
+};
+
+export const getCollections = async () => {
+    try {
+        return await axiosInstance.get(`categories`);
     } catch (err) {
         console.error(err);
     }
