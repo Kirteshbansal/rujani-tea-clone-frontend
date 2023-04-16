@@ -19,7 +19,6 @@ import { BsChevronDown } from "react-icons/bs";
 
 import Carousel from "./Carousel";
 import CollectionCard from "../collections/CollectionCard";
-import collectionsData from "../collections/collectionsData.js";
 import Layout from "../components/Layout/Layout";
 import Reviews from "./Reviews";
 import routes from "../routes/routes";
@@ -41,7 +40,7 @@ const Home = (props) => {
 
     useEffect(() => {
         if (Object.keys(props.collections).length === 0) {
-            fetchCollections(collectionsData);
+            fetchCollections();
         }
         if (Object.keys(props.products).length === 0) {
             fetchProducts();
@@ -185,23 +184,23 @@ const Home = (props) => {
                 >
                     {!collectionsLoading
                         ? collections.length > 0 &&
-                          collections.map((card) => {
-                              return <CollectionCard key={card?.id} cardData={card} />;
-                          })
+                        collections.map((card) => {
+                            return <CollectionCard key={card?.id} cardData={card} />;
+                        })
                         : new Array(6).fill(null).map((skeleton, index) => (
-                              <Box
-                                  key={index + 1}
-                                  py={15}
-                                  px={{ base: "20px", md: "15px" }}
-                                  w={{ base: "100%", md: "49%", xl: "33.33%" }}
-                                  h={{ base: "530px", xl: "610px" }}
-                                  alignSelf="flex-end"
-                                  display="flex"
-                                  alignItems="flex-end"
-                              >
-                                  <SkeletonComp numsOfStacks={12} width={"98%"} mt={"5px"} mb={"5px"} />
-                              </Box>
-                          ))}
+                            <Box
+                                key={index + 1}
+                                py={15}
+                                px={{ base: "20px", md: "15px" }}
+                                w={{ base: "100%", md: "49%", xl: "33.33%" }}
+                                h={{ base: "530px", xl: "610px" }}
+                                alignSelf="flex-end"
+                                display="flex"
+                                alignItems="flex-end"
+                            >
+                                <SkeletonComp numsOfStacks={12} width={"98%"} mt={"5px"} mb={"5px"} />
+                            </Box>
+                        ))}
                 </Flex>
 
                 <Reviews />

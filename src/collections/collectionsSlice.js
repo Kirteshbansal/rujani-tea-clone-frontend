@@ -2,14 +2,10 @@ import { createSlice, createAsyncThunk } from "@reduxjs/toolkit";
 
 import { getCollections } from "../projectService";
 
-export const fetchCollections = createAsyncThunk("collections/fetchCollections", async (otherCollectionsData) => {
+export const fetchCollections = createAsyncThunk("collections/fetchCollections", async () => {
     try {
         const response = await getCollections();
-        const updatedResponse = response.data.map((collection, index) => ({
-            ...collection,
-            image: otherCollectionsData[index]?.image,
-        }));
-        return updatedResponse;
+        return response?.data || [];
     } catch (err) {
         console.error(err);
     }
