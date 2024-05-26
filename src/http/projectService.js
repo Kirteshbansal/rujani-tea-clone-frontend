@@ -1,4 +1,4 @@
-import axiosInstance from "./http/api";
+import axiosInstance from "./api";
 
 export const getAllProducts = async () => {
     try {
